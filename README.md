@@ -2,12 +2,12 @@
 
 A collection of tutorials, projects, and APIs from node course I'm taking on udemy.
 
-### Topics
+### Topics (Based on my Notes)
 
-- Intro to Nodejs
-- Globals
-- Modules & exports
-- Built in modules
+1. Intro to Nodejs
+2. Globals
+3. Modules & exports
+4. Built in modules
 
 ### Resources
 
