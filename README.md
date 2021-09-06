@@ -10,6 +10,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 4. Built-In Modules
    - OS module
    - Path module
+   - Fs module (Sync)
 
 ## Resources
 
