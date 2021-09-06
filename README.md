@@ -7,7 +7,8 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 1. Intro to Nodejs
 2. Globals
 3. Modules & exports
-4. Built in modules
+4. Built-In Modules
+   - OS module
 
 ## Resources
 
