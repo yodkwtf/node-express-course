@@ -9,6 +9,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 3. Modules & exports
 4. Built-In Modules
    - OS module
+   - Path module
 
 ## Resources
 
