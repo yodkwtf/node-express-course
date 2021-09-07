@@ -18,6 +18,8 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 ## Resources
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
+- [NPM - Download Packages](https://www.npmjs.com/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ## Install & Run
 

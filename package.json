@@ -4,7 +4,8 @@
   "description": "A collection of tutorials, projects, and APIs from the node course I'm taking on udemy.",
   "main": "1-intro.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "dependencies": {
     "bootstrap": "^5.1.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
