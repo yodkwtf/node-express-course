@@ -16,6 +16,9 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 6. Package.json file and first npm module
 7. Event Loops & Non Blocking Codes - Theory
 8. Async Patterns
+   - Promises Way
+   - Using async/await
+9. Events & Event Emitter
 
 ## Resources
 
