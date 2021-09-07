@@ -19,6 +19,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
    - Promises Way
    - Using async/await
 9. Events & Event Emitter
+10. Streams
 
 ## Resources
 
