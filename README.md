@@ -11,15 +11,24 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
    - OS module
    - Path module
    - Fs module (Sync & Async)
+   - HTTP module
+5. NPM - Node Package Manager
+6. Package.json file and first npm module
 
 ## Resources
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 
-## Install
+## Install & Run
 
 To clone this project locally, run
 
 ```bash
   git clone https://github.com/yodkwtf/nodejs-course.git
+```
+
+To install dependencies, open terminal and run
+
+```bash
+  num install
 ```

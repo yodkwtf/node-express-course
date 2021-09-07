@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-course",
+  "version": "1.0.0",
+  "description": "A collection of tutorials, projects, and APIs from the node course I'm taking on udemy.",
+  "main": "1-intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yodkwtf/nodejs-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yodkwtf/nodejs-course/issues"
+  },
+  "homepage": "https://github.com/yodkwtf/nodejs-course#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "lodash": "^4.17.21"
+  }
+}
