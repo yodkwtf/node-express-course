@@ -15,6 +15,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 5. NPM - Node Package Manager
 6. Package.json file and first npm module
 7. Event Loops & Non Blocking Codes - Theory
+8. Async Patterns
 
 ## Resources
 
@@ -33,5 +34,5 @@ To clone this project locally, run
 To install dependencies, open terminal and run
 
 ```bash
-  num install
+  npm install
 ```
