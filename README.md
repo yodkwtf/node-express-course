@@ -14,6 +14,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
    - HTTP module
 5. NPM - Node Package Manager
 6. Package.json file and first npm module
+7. Event Loops & Non Blocking Codes - Theory
 
 ## Resources
 
