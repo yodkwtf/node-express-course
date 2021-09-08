@@ -4,6 +4,8 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 
 ## Topics (Based on my Notes)
 
+#### Node Tutorials
+
 1. Intro to Nodejs
 2. Globals
 3. Modules & exports
