@@ -4,7 +4,7 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 
 ## Topics (Based on my Notes)
 
-#### Node Tutorials
+#### _Node Tutorials_
 
 1. Intro to Nodejs
 2. Globals
@@ -23,13 +23,16 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 9. Events & Event Emitter
 10. Streams
 
-#### Express Tutorials
+#### _Express Tutorials_
+
+11. HTTP Server - Basics
 
 ## Resources
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
+- [ExpressJs](https://www.npmjs.com/package/express)
 
 ## Install & Run
 
