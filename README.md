@@ -1,6 +1,6 @@
-# NodeJs Course - Codes & Projects
+# Node and Express Course - Codes & Projects
 
-A collection of tutorials, projects, and APIs from the node course I'm taking on udemy.
+A collection of tutorials, projects, and APIs from the nodejs course I'm taking on udemy.
 
 ## Topics (Based on my Notes)
 
@@ -25,7 +25,8 @@ A collection of tutorials, projects, and APIs from the node course I'm taking on
 
 #### _Express Tutorials_
 
-11. HTTP Server - Basics
+11. HTTP Server - Basics of setting up server
+12. HTTP Server - Sending headers & specific data
 
 ## Resources
 
