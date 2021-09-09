@@ -40,6 +40,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 15. Query Strings
 16. Middlewares
     - Basics and Setup
+    - _app.use_ for all routes
 
 ## Resources
 
