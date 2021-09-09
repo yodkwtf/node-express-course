@@ -75,5 +75,5 @@ To install dependencies, navigate to the specific folder, open terminal and run
 To test something locally in the browser, open terminal and run
 
 ```bash
-  npm instalstartl
+  npm start
 ```
