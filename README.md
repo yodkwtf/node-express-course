@@ -34,6 +34,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - App Example
     - Serving all static files via _app.use()_
 13. JSON - Basic Example
+14. Sending specific Data & Params, Query String setup
 
 ## Resources
 
