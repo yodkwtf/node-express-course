@@ -28,6 +28,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 11. HTTP Server - Basics of setting up server
 12. HTTP Server - Sending headers & specific data
 13. HTTP Server - Real time app example
+14. Express - Basics & setting up server
 
 ## Resources
 
