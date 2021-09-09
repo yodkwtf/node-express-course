@@ -33,6 +33,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - Basics & setting up server
     - App Example
     - Serving all static files via _app.use()_
+13. JSON - Basic Example
 
 ## Resources
 
