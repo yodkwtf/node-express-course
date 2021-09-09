@@ -38,6 +38,8 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - Sending specific data manually
 14. Route Params
 15. Query Strings
+16. Middlewares
+    - Basics and Setup
 
 ## Resources
 
