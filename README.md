@@ -45,6 +45,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 17. HTTP Methods
     - GET request
     - POST request
+    - PUT request
 
 ## Resources
 
