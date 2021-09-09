@@ -41,6 +41,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 16. Middlewares
     - Basics and Setup
     - _app.use_ for all routes
+    - Multiple middlewares together
 
 ## Resources
 
