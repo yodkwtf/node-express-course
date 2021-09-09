@@ -25,12 +25,14 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 
 #### _Express Tutorials_
 
-11. HTTP Server - Basics of setting up server
-12. HTTP Server - Sending headers & specific data
-13. HTTP Server - Real time app example
-14. Express - Basics & setting up server
-15. Express Server - App Example
-16. Serving all static files via _app.use()_
+11. HTTP Server
+    - Basics of setting up server
+    - Sending headers & specific data
+    - Real time app example
+12. Express Server
+    - Basics & setting up server
+    - App Example
+    - Serving all static files via _app.use()_
 
 ## Resources
 
