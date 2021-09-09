@@ -47,6 +47,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - POST request
     - PUT request
     - DELETE request
+18. Express Routers
 
 ## Resources
 
@@ -54,6 +55,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 - [NPM - Download Packages](https://www.npmjs.com/)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [ExpressJs](https://www.npmjs.com/package/express)
+- [Postman](https://www.postman.com/)
 
 ## Install & Run
 
