@@ -42,6 +42,8 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - Basics and Setup
     - _app.use_ for all routes
     - Multiple middlewares together
+17. HTTP Methods
+    - GET request
 
 ## Resources
 
