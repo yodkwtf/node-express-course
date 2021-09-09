@@ -48,6 +48,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - PUT request
     - DELETE request
 18. Express Routers
+19. Controllers
 
 ## Resources
 
