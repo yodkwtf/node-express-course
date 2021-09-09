@@ -44,6 +44,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - Multiple middlewares together
 17. HTTP Methods
     - GET request
+    - POST request
 
 ## Resources
 
