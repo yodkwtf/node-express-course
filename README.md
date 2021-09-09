@@ -30,6 +30,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 13. HTTP Server - Real time app example
 14. Express - Basics & setting up server
 15. Express Server - App Example
+16. Serving all static files via _app.use()_
 
 ## Resources
 
