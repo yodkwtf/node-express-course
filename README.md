@@ -46,6 +46,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
     - GET request
     - POST request
     - PUT request
+    - DELETE request
 
 ## Resources
 
