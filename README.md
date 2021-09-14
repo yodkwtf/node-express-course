@@ -2,13 +2,13 @@
 
 A collection of tutorials, projects, and APIs from the nodejs course I'm taking on udemy.
 
-## Content
+### Contents
 
 1. Node Tutorials
 2. Express Tutorials
 3. Task Manager API
 
-## Resources
+### Resources
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
@@ -16,7 +16,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 - [ExpressJs](https://www.npmjs.com/package/express)
 - [Postman](https://www.postman.com/)
 
-## Install & Run
+### Install & Run
 
 To clone this project locally, run
 
