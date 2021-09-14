@@ -5,8 +5,8 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 ### Contents
 
 1. [Node Tutorials](/01-node-tutorial)
-2. Express Tutorials
-3. Task Manager API
+2. [Express Tutorials](/02-express-tutorial)
+3. [Task Manager API](/03-task-manager-API)
 
 ### Resources
 
