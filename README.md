@@ -12,8 +12,8 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
-- [ExpressJs](https://www.npmjs.com/package/express)
+- [Nodemon](https://nodemon.io/)
+- [ExpressJs](https://expressjs.com/)
 - [Postman](https://www.postman.com/)
 
 ### Install & Run
