@@ -10,3 +10,8 @@
 - get('/tasks/:id', func) - Get a specific task
 - patch('/tasks/:id', func) - Edit a specific task
 - delete('/tasks/:id', func) - Delete a specific task
+
+#### Notes
+
+- While on local, we cam use any of the 2 options provided, when deployed to heroku, we need to check the `allow access from anywhere` option in atlas.
+- This is only specific to heroku, on something like Digital Ocean we can just swap up the IP address after deploying and everything works perfectly.
