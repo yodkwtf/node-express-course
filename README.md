@@ -8,13 +8,15 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 2. [Express Tutorial](/02-express-tutorial)
 3. [Task Manager API](/03-task-manager-api)
 
-### Resources
+### Stack
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
 - [Nodemon](https://nodemon.io/)
 - [ExpressJs](https://expressjs.com/)
 - [Postman](https://www.postman.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Mongoose](https://mongoosejs.com/)
 
 ### Install & Run
 
