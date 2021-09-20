@@ -17,6 +17,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 - [Postman](https://www.postman.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - [Mongoose](https://mongoosejs.com/)
+- [dotenv](https://github.com/motdotla/dotenv#readme)
 
 ### Install & Run
 
