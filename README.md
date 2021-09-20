@@ -12,10 +12,13 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
-- [Nodemon](https://nodemon.io/)
-- [ExpressJs](https://expressjs.com/)
 - [Postman](https://www.postman.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+### Packages
+
+- [ExpressJs](https://expressjs.com/)
+- [Nodemon](https://nodemon.io/)
 - [Mongoose](https://mongoosejs.com/)
 - [dotenv](https://github.com/motdotla/dotenv#readme)
 
