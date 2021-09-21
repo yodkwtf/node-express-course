@@ -30,3 +30,8 @@
 
 - Schema gives a structure to our data
 - Only the properties we specify in schema will be passed to database and rest of thr things will be ignored.
+
+#### Deployment
+
+- We have to set up the port using the process.env environment variable called `PORT` as every deploying platform uses its own port to manage multiple projects
+- We have to use an `OR` operator (`||`) to speicfy a fallback port like 3000, usually to run the project locally

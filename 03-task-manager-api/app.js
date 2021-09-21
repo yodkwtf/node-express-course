@@ -17,7 +17,8 @@ app.use('/api/v1/tasks', tasks);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
-const port = 3000;
+// setting up port for deployments
+const port = process.env.PORT || 3000;
 
 // start the connection
 const start = async () => {
