@@ -8,12 +8,16 @@ Since the app uses cloud database but doesn't handle authentication, deploying i
 
 #### How to run?
 
-- Open the terminal and navigate to `03-task-manager-api` directory
-- Install the dependencies by running
+- Clone this repo first if you haven't
+  ```bash
+  git clone https://github.com/yodkwtf/nodejs-course.git
+  ```
+- Use the terminal and navigate to `03-task-manager-api` directory
+- Install the dependencies
   ```bash
   npm install
   ```
-- See it live by running
+- See it live
   ```bash
   npm start
   ```
@@ -43,13 +47,13 @@ Since the app uses cloud database but doesn't handle authentication, deploying i
 
 #### Databases
 
-- While on local, we cam use any of the 2 options provided, when deployed to heroku, we need to check the `allow access from anywhere` option in atlas.
+- While on local, we can use any of the 2 options provided, when deployed to heroku, we need to check the `allow access from anywhere` option in atlas.
 - This is only specific to heroku, on something like Digital Ocean we can just swap up the IP address after deploying and everything works perfectly.
 
 #### Schema
 
 - Schema gives a structure to our data
-- Only the properties we specify in schema will be passed to database and rest of thr things will be ignored.
+- Only the properties we specify in schema will be passed to database and rest of the things will be ignored.
 
 #### Deployment
 
