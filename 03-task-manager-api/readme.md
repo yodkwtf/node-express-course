@@ -1,3 +1,23 @@
+## Task Manager API
+
+An API created to perform CRUD operations in the forms of tasks/to-do-items. We also have a frontend to test the API. We can create, update, delete, and get any and all tasks we want.
+
+## Preview
+
+Since the app uses cloud database but doesn't handle authentication, deploying it live wasn't an option. The only way to preview the app is by running it locally.
+
+#### How to run?
+
+- Open the terminal and navigate to `03-task-manager-api` directory
+- Install the dependencies by running
+  ```bash
+  npm install
+  ```
+- See it live by running
+  ```bash
+  npm start
+  ```
+
 ### Goals
 
 - Persisting data to the cloud
