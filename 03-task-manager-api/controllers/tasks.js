@@ -38,8 +38,27 @@ const getTask = async (req, res) => {
 };
 
 // # UPDATE A TASK
-const updateTask = (req, res) => {
-  res.send('update task');
+const updateTask = async (req, res) => {
+  try {
+    // get id
+    const { id: taskID } = req.params;
+
+    // update task (validation, body for update, options object)
+    const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
+      new: true, //return updated item
+      runValidators: true, // check validations for schema
+    });
+
+    // if item doesnt exist
+    if (!task) {
+      return res.status(404).json({ msg: `No task with id - ${taskID} found` });
+    }
+
+    // if successfull
+    res.status(200).json({ task });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
 
 // # DELETE A TASK

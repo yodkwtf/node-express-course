@@ -17,6 +17,7 @@
 - get all tasks - Task.find({})
 - get task - Task.find({\_id:id})
 - delete task - Task.findOneAndDelete({\_id:id})
+- update task - Task.findOneAndUpdate({ \_id: taskID }, req.body, options object);
 
 ### Notes
 
