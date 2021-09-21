@@ -4,6 +4,7 @@ const asyncWrapper = (fn) => {
       await fn(req, res, next);
     } catch (error) {
       next(error);
+      // we are passing the error to the next middleware which in our case is errorHandlerMiddleware
     }
   };
 };
