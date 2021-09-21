@@ -11,6 +11,13 @@
 - patch('/tasks/:id', func) - Edit a specific task
 - delete('/tasks/:id', func) - Delete a specific task
 
+### Mongoose Model Functions
+
+- create task - Task.create(req.body)
+- get all tasks - Task.find({})
+- get task - Task.find({\_id:id})
+- delete task - Task.findOneAndDelete({\_id:id})
+
 ### Notes
 
 #### Databases
