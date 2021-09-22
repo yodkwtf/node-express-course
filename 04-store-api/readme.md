@@ -11,4 +11,5 @@
 
 - Getting all products
 - Based on featured products [true, false]
-- Based on company name [single type options]
+- Based on product company name [single type options]
+- Based on product name [using mongoose regex pattern]
