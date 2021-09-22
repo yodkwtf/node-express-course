@@ -10,3 +10,5 @@
 ### Filters
 
 - Getting all products
+- Based on featured products [true, false]
+- Based on company name [single type options]

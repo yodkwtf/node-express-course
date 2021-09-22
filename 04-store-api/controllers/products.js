@@ -7,13 +7,16 @@ const getAllProductsStatic = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   // get only properties u want
-  const { featured } = req.query;
+  const { featured, company } = req.query;
 
   // setting up query object for the queries
   const queryObject = {};
 
   if (featured) {
     queryObject.featured = featured === 'true' ? true : false;
+  }
+  if (company) {
+    queryObject.company = company;
   }
 
   console.log(queryObject);
