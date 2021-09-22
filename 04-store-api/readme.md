@@ -32,3 +32,11 @@ _'/api/v1/products?..._
 - Used as `/products?fields=name,rating`
 - Returns only specific fields for the products
 - Will have the default `_id` property in all cases
+
+#### Limit & Skip
+
+- Used together to setup pagination
+- `/products?limit=3` returns only 3 products
+- If limit >= no. of products, it will return all products
+- `/products?skip=5` will skip the first 5 products and return the rest
+- If skip >= no. of products, no products will be returned
