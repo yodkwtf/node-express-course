@@ -1,4 +1,4 @@
-## Task Manager API
+## Task Manager
 
 An API created to perform CRUD operations in the forms of tasks/to-do-items. We also have a frontend to test the API. We can create, update, delete, and get any and all tasks we want.
 
