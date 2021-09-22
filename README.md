@@ -22,6 +22,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 - [Nodemon](https://nodemon.io/)
 - [Mongoose](https://mongoosejs.com/)
 - [dotenv](https://github.com/motdotla/dotenv#readme)
+- [Express Async Errors](https://github.com/davidbanham/express-async-errors#readme)
 
 ### Install & Run
 
