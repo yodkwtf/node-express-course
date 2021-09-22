@@ -7,6 +7,7 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 1. [Node Tutorial](/01-node-tutorial)
 2. [Express Tutorial](/02-express-tutorial)
 3. [Task Manager](/03-task-manager)
+4. [Store API](/04-store-api)
 
 ### Stack
 
