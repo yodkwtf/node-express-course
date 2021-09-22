@@ -6,8 +6,19 @@ const getAllProductsStatic = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
+  // get only properties u want
+  const { featured } = req.query;
+
+  // setting up query object for the queries
+  const queryObject = {};
+
+  if (featured) {
+    queryObject.featured = featured === 'true' ? true : false;
+  }
+
+  console.log(queryObject);
   // get products
-  const products = await Product.find(req.query);
+  const products = await Product.find(queryObject);
 
   // send products
   res.status(200).json({ products, nbHits: products.length });
