@@ -1,17 +1,16 @@
 const Product = require('../models/product');
 
 const getAllProductsStatic = async (req, res) => {
-  const products = await Product.find({})
-    .sort('name')
-    .select('name price')
-    .limit(10)
-    .skip(5);
-  res.status(200).json({ products, nbHits: products.length });
+  const products = await Product.find({ price: { $gt: 100 } })
+    .sort('-price')
+    .select('name price');
+
+  res.status(200).json({ nbHits: products.length, products });
 };
 
 const getAllProducts = async (req, res) => {
-  // get only properties u want
-  const { featured, company, name, sort, fields } = req.query;
+  // get properties query params
+  const { featured, company, name, sort, fields, numericFilters } = req.query;
 
   // setting up query object for the queries
   const queryObject = {};
@@ -25,9 +24,35 @@ const getAllProducts = async (req, res) => {
   if (name) {
     queryObject.name = { $regex: name, $options: 'i' }; // means case insenstivity (search feature)
   }
+  if (numericFilters) {
+    const operatorMap = {
+      '>': '$gt',
+      '>=': '$gte',
+      '=': '$eq',
+      '<': '$lt',
+      '<=': '$lte',
+    };
+    const regEx = /\b(<|>|<=|>=|=)\b/g;
+    let filters = numericFilters.replace(
+      regEx,
+      (match) => `-${operatorMap[match]}-`
+    );
 
-  // console.log(queryObject);
-  //- get products queries
+    const options = ['price', 'rating'];
+
+    filters = filters.split(',').forEach((item) => {
+      const [field, operator, value] = item.split('-');
+      if (options.includes(field)) {
+        queryObject[field] = { [operator]: Number(value) }; // console.log(queryObject) to understand
+      }
+    });
+
+    console.log(filters);
+  }
+
+  console.log(queryObject);
+
+  //- get products based on queries
   let result = Product.find(queryObject);
 
   // sort products
@@ -44,19 +69,17 @@ const getAllProducts = async (req, res) => {
     result = result.select(fieldsList);
   }
 
-  // get page number & limit
+  // pagination
   const page = Number(req.query.page) || 1;
   const limit = Number(req.query.limit) || 10;
-  // calc how many items to skip to reach to specific page
   const skip = (page - 1) * limit;
-  // skip specified no. of items
   result = result.skip(skip).limit(limit);
 
   //- get sorted products
   const products = await result;
 
   //- send products
-  res.status(200).json({ products, nbHits: products.length });
+  res.status(200).json({ nbHits: products.length, products });
 };
 
 module.exports = {

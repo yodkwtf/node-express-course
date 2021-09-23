@@ -9,7 +9,7 @@
 
 ### Features
 
-_'/api/v1/products?..._
+_`/api/v1/products?...`_
 
 #### Sort
 
@@ -23,9 +23,15 @@ _'/api/v1/products?..._
 
 - Used as `/products?name=a&featured=true`
 - Filters products based on specified properties
-- Based on featured products [true, false]
-- Based on product company name [single type options]
-- Based on product name [using mongoose regex pattern]
+- Based on _featured_ products [true, false]
+- Based on product _company_ name [single type options]
+- Based on product _name_ [using mongoose regex pattern]
+- Based on _numeric filters_ [using mongoose regular expressions]
+  - `/products/price>=40` returns products with price of 40 and above
+  - we use _replace_ method to replace `>=` into mongoose regex `$gte`
+  - we split the filter into 3 parts - field, opeartor, value [price, $gte, 40]
+  - we dynamically set up a key value pair on query object `queryObject[field] = { [operator]: Number(value) }`
+  - it looks like `Product.find(*{price: {'$gte':40}}*)`
 
 #### Fields
 
@@ -40,3 +46,4 @@ _'/api/v1/products?..._
 - If limit >= no. of products, it will return all products
 - `/products?skip=5` will skip the first 5 products and return the rest
 - If skip >= no. of products, no products will be returned
+- `/products?limit=3&page=2` will skip the first 3 items and show us the items from 4th to 6th
