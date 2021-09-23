@@ -1,3 +1,32 @@
+## Store API
+
+An API created to fetch products for a store using the GET method. The products are filtered based on various conditions set up using the query parameters. We also have sorting, pagination, numeric filteres, etc.
+
+## Preview
+
+The API isn't yet deployed anywhere. The only way to preview the api is by running it locally.
+
+#### How to run?
+
+- Clone this repo first if you haven't
+  ```bash
+  git clone https://github.com/yodkwtf/nodejs-course.git
+  ```
+- Use the terminal and navigate to `04-store-api` directory
+- Install the dependencies and run the server
+  ```bash
+  npm install && npm start
+  ```
+- You can see the various routes and filteres either by navigating manually on port 3000 or using a third party tool like postman
+
+### Goals
+
+- Filter data using query parameters
+- Sorting data using query parameters and mongoose methods
+- Setting up custom pagination using query params
+- Work with numeric filters using mongoose regex
+- Setting up custom filters on the backend makes the work a lot easier for the user using the API at the frontend. Basically the frontend is only left with the task of fetching the required data.
+
 ### Routes
 
 - get('/products') - to get all the products
