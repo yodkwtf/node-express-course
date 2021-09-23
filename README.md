@@ -1,6 +1,7 @@
 ## Node and Express Course - Codes & Projects
 
-A collection of tutorials, projects, and APIs from the nodejs course I'm taking on udemy.
+A collection of tutorials, projects, and APIs from the node and express course I'm taking. For more info about a specific project, navigate to that project's directory and check out the readme file.
+I documented every project as much as I could in its readme file.
 
 ### Contents
 
@@ -27,20 +28,14 @@ A collection of tutorials, projects, and APIs from the nodejs course I'm taking 
 
 ### Install & Run
 
-To clone this project locally, run
+Clone this project locally
 
 ```bash
   git clone https://github.com/yodkwtf/nodejs-course.git
 ```
 
-To install dependencies, navigate to the specific folder, open terminal and run
+Install dependencies and run
 
 ```bash
-  npm install
-```
-
-To test something locally in the browser, open terminal and run
-
-```bash
-  npm start
+  npm install && npm start
 ```
