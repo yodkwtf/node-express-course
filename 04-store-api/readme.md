@@ -19,7 +19,7 @@ The API isn't yet deployed anywhere. The only way to preview the api is by runni
   ```
 - You can see the various routes and filteres either by navigating manually on port 3000 or using a third party tool like postman
 
-### Goals
+## Goals
 
 - Filter data using query parameters
 - Sorting data using query parameters and mongoose methods
@@ -27,16 +27,16 @@ The API isn't yet deployed anywhere. The only way to preview the api is by runni
 - Work with numeric filters using mongoose regex
 - Setting up custom filters on the backend makes the work a lot easier for the user using the API at the frontend. Basically the frontend is only left with the task of fetching the required data.
 
-### Routes
+## Routes
 
 - get('/products') - to get all the products
 - get('/products/static') - same as above but for testing
 
-### Packages
+## Packages
 
 - `express-async-errors` - removes the need of creating an async wrapper middleware to wrap the trycatch block of all the controllers and does all the heavy lifting itself
 
-### Features
+## Features
 
 _`/api/v1/products?...`_
 
