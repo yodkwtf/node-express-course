@@ -44,7 +44,7 @@ The app isn't yet deployed anywhere. The only way to preview it is by running it
 - verify token & get token specific data
 - send the secret key and specific data as the response
 
-### Packages
+## Packages
 
 - `express-async-errors` - removes the need of creating an async wrapper middleware to wrap the trycatch block of all the controllers and does all the heavy lifting itself
 - `jsonwebtoken` - used to sign and decode json web tokens
