@@ -12,7 +12,7 @@
 
 - `express-async-errors` - removes the need of creating an async wrapper middleware to wrap the trycatch block of all the controllers and does all the heavy lifting itself
 
-#### Controllers
+#### Controllers and Routes
 
 - `Login` - To allow user to login and get their data
 - `Dashboard` - To show the secret code to the authenticated user
