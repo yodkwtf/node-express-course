@@ -12,6 +12,8 @@
   - Server send the signed JWT response
   - User provides the signed JWT resposne to server and requests the data
   - If signed JWT is correct, server sends the response as data
+- `Why auth middleware?`
+  - In bigger projects we will have a lot more routes than just a dashboard that may require user authentication. So setting up the auth funtionality for every single route isn't ideal. So we setup a middleware and pass it to the routes in which we wanna use the authentication process.
 
 ### Packages
 
