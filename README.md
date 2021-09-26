@@ -26,6 +26,7 @@ I documented every project as much as I could in its readme file.
 - [dotenv](https://github.com/motdotla/dotenv#readme)
 - [Express Async Errors](https://github.com/davidbanham/express-async-errors#readme)
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
+- [http-status-codes](https://github.com/prettymuchbryce/http-status-codes#readme)
 
 ### Install & Run
 
