@@ -25,6 +25,7 @@ I documented every project as much as I could in its readme file.
 - [Mongoose](https://mongoosejs.com/)
 - [dotenv](https://github.com/motdotla/dotenv#readme)
 - [Express Async Errors](https://github.com/davidbanham/express-async-errors#readme)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
 
 ### Install & Run
 
