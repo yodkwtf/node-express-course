@@ -20,10 +20,24 @@ const login = async (req, res) => {
     expiresIn: '30d',
   });
 
+  // send response
   res.status(200).json({ msg: 'user created', token });
 };
 
 const dashboard = async (req, res) => {
+  // get auth header
+  const authHeader = req.headers.authorization;
+
+  // validate auth header
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new CustomAPIError('Unauthorized', 401);
+  }
+
+  // get the token form auth header
+  const token = authHeader.split(' ')[1];
+
+  console.log(authHeader);
+  console.log('Token - ' + token);
   const luckyNumber = Math.floor(Math.random() * 100) + 1;
   res.status(200).json({
     msg: `Hello John Doe`,
