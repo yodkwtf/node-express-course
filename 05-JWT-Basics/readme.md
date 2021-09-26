@@ -19,14 +19,14 @@ The app isn't yet deployed anywhere. The only way to preview it is by running it
   ```
 - You can test the app and routes by navigating manually on port 3000 or using a third party tool like postman. Just remember to add authentication headers when working with JWTs.
 
-### Goals
+## Goals
 
 - Setting up authentication using JWT
 - Allowing users to only access their specific data.
 - Seeing how it works in the frontend using localstorage to store the token
 - Just covering the basics.
 
-### Routes and Controllers
+## Routes and Controllers
 
 #### _Login_ - To allow user to login/register and send their data to server
 
@@ -50,7 +50,7 @@ The app isn't yet deployed anywhere. The only way to preview it is by running it
 - `jsonwebtoken` - used to sign and decode json web tokens
 - `http-status-codes` - to send http error codes based on request names instead of hardcoding them
 
-### Notes
+## Notes
 
 - Since we are only working with JWT basics, we are not connecting to database in this project. Eventually, we will just use the local storage to store the JWT token.
 - Even autheticated users don't get access to all the data, they only get access to the specified routes by the servers (us, in this case).
