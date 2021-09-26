@@ -20,5 +20,15 @@
 
 #### Controllers and Routes
 
-- `Login` - To allow user to login and get their data
-- `Dashboard` - To show the secret code to the authenticated user
+- `Login` - To allow user to login and send their data to server
+  - using POST method
+  - get the username and password from the new user
+  - create the JWt token
+  - send the token to server using the post method
+- `Dashboard` - To send the specific response for the authenticated user
+  - using GET method
+  - get the authheader from req.body
+  - validate the syntax for the header
+  - extract the _token_ from the bearer token
+  - verify token & get token specific data
+  - send the secret key and specific data as the response

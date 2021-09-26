@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const CustomAPIError = require('../errors/custom-error');
 
+// # LOGIN OR REGISTER
 const login = async (req, res) => {
   // get data
   const { username, password } = req.body;
@@ -24,6 +25,7 @@ const login = async (req, res) => {
   res.status(200).json({ msg: 'user created', token });
 };
 
+// # DASHBOARD TO GET THE DATA
 const dashboard = async (req, res) => {
   // get auth header
   const authHeader = req.headers.authorization;
@@ -36,13 +38,22 @@ const dashboard = async (req, res) => {
   // get the token form auth header
   const token = authHeader.split(' ')[1];
 
-  console.log(authHeader);
-  console.log('Token - ' + token);
-  const luckyNumber = Math.floor(Math.random() * 100) + 1;
-  res.status(200).json({
-    msg: `Hello John Doe`,
-    secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
-  });
+  // verify if the token is correct
+  try {
+    //- get the token specific data
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    //- generate a random number
+    const luckyNumber = Math.floor(Math.random() * 100) + 1;
+
+    //- send the response
+    res.status(200).json({
+      msg: `Hello ${decoded.username}`,
+      secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+    });
+  } catch (error) {
+    throw new CustomAPIError('Not authorized to access this route', 401);
+  }
 };
 
 module.exports = { login, dashboard };
