@@ -22,12 +22,12 @@ Since the app uses cloud database but doesn't handle authentication, deploying i
   npm start
   ```
 
-### Goals
+## Goals
 
 - Persisting data to the cloud
 - Performing CRUD operations
 
-### Routes Needed
+## Routes Needed
 
 - get('/tasks', func) - Get all tasks
 - post('/tasks', func) - Add a new task
@@ -35,7 +35,7 @@ Since the app uses cloud database but doesn't handle authentication, deploying i
 - patch('/tasks/:id', func) - Edit a specific task
 - delete('/tasks/:id', func) - Delete a specific task
 
-### Mongoose Model Functions
+## Mongoose Model Functions
 
 - create task - Task.create(req.body)
 - get all tasks - Task.find({})
@@ -43,7 +43,7 @@ Since the app uses cloud database but doesn't handle authentication, deploying i
 - delete task - Task.findOneAndDelete({\_id:id})
 - update task - Task.findOneAndUpdate({ \_id: taskID }, req.body, options object);
 
-### Notes
+## Notes
 
 #### Databases
 
