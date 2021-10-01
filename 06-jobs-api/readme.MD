@@ -11,6 +11,20 @@ npm install && npm start
 3. Setup .env in the root
 4. Add MONGO_URI with correct value
 
+#### Controllers
+
+1. `auth.js` - responsible for user authentication
+
+   - register user
+   - login a new user
+
+2. `jobs.js` - responsible fro CRUD functionality of jobs
+   - get all jobs
+   - get a specific single job
+   - create a job
+   - update a specific job
+   - delete a specific job
+
 #### Routers
 
 - auth.js
