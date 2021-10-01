@@ -11,19 +11,16 @@ npm install && npm start
 3. Import `connect.js` in app.js
 4. Invoke in start()
 
-#### Controllers
+#### Models
 
-1. `auth.js` - responsible for user authentication
-
-   - register user
-   - login a new user
-
-2. `jobs.js` - responsible for CRUD functionality of jobs
-   - get all jobs
-   - get a specific single job
-   - create a job
-   - update a specific job
-   - delete a specific job
+1. User Model
+   - get a name [string, 3-50 char]
+   - get an email [string, unique, match the regex below]
+     - Email Validation Regex
+       ```regex
+       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+       ```
+   - get a password [string, 6-12 char]
 
 #### Routes
 
@@ -39,13 +36,19 @@ npm install && npm start
    - update job - `app.pacth('/api/v1/jobs/:id', updateJob)`
    - delete job - `app.delete('/api/v1/jobs/:id', deleteJob)`
 
-#### User Model
+#### Controllers
 
-Email Validation Regex
+1. `auth.js` - responsible for user authentication
 
-```regex
-/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-```
+   - register user
+   - login a new user
+
+2. `jobs.js` - responsible for CRUD functionality of jobs
+   - get all jobs
+   - get a specific single job
+   - create a job
+   - update a specific job
+   - delete a specific job
 
 #### Register User
 
