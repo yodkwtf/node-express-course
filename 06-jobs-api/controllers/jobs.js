@@ -10,7 +10,7 @@ const getJob = async (req, res) => {
 
 // # CREATE JOB
 const createJob = async (req, res) => {
-  res.send('create job');
+  res.json(req.user);
 };
 
 // # UPDATE JOB

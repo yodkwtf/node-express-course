@@ -23,6 +23,18 @@ npm install && npm start
     ```
 - get a password [string, 6-12 char]
 
+## Middlewares
+
+#### Auth Middleware
+
+- Get the auth header
+- Verify its syntax
+- Extract the JWT token
+- Get the token specific data (payload)
+- Create a user object in req so it can be accessed in the routes
+- Add the middleware to all the required routes
+- If all routes need it, add it next to the base api url in the app.js
+
 ## Routes
 
 #### `auth.js` - used for user authentication
