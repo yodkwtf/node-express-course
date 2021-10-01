@@ -15,13 +15,21 @@ npm install && npm start
 
 #### User Model
 
-- get a name [string, 3-50 char]
-- get an email [string, unique, match the regex below]
+- name [string, 3-50 char]
+- email [string, unique, match the regex below]
   - Email Validation Regex
     ```regex
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     ```
-- get a password [string, 6-12 char]
+- password [string, min. 6 char]
+
+#### Jobs Model
+
+- company name [string, 0-50 char]
+- the position [string, 0-100 char]
+- job status [default - pending, choose from rest]
+- created by [user who created it, id via User model]
+- timestamps are on
 
 ## Middlewares
 
