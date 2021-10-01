@@ -52,11 +52,11 @@ npm install && npm start
    - Send Response with Token
 
 2. Login User
-   - Validate - email, password - in controller
+   - Validate if email and password are provided
    - If email or password is missing, throw BadRequestError
-   - Find User
-   - Compare Passwords
-   - If no user or password does not match, throw UnauthenticatedError
+   - Find user by email
+   - Compare Passwords using bcrypt
+   - If no user or the password does not match, throw UnauthenticatedError
    - If correct, generate Token
    - Send Response with Token
 
