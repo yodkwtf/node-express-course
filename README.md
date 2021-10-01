@@ -10,6 +10,7 @@ I documented every project as much as I could in its readme file.
 3. [Task Manager](/03-task-manager)
 4. [Store API](/04-store-api)
 5. [JWT Basics](/05-JWT-Basics)
+6. [Jobs API](/06-jobs-api)
 
 ### Stack
 
