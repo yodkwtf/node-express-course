@@ -18,17 +18,26 @@ npm install && npm start
    - register user
    - login a new user
 
-2. `jobs.js` - responsible fro CRUD functionality of jobs
+2. `jobs.js` - responsible for CRUD functionality of jobs
    - get all jobs
    - get a specific single job
    - create a job
    - update a specific job
    - delete a specific job
 
-#### Routers
+#### Routes
 
-- auth.js
-- jobs.js
+1. **auth.js** - used for user authentication
+
+   - register user - `app.post('/api/v1/auth/register', register)`
+   - login a new user - `app.post('/api/v1/auth/login', login)`
+
+2. **jobs.js** - used for CRUD operations for jobs
+   - get all jobs - `app.get('/api/v1/jobs', getAllJobs)`
+   - get single job - `app.get('/api/v1/jobs/:id', getJob)`
+   - create job - `app.post('/api/v1/jobs', createJob)`
+   - update job - `app.pacth('/api/v1/jobs/:id', updateJob)`
+   - delete job - `app.delete('/api/v1/jobs/:id', deleteJob)`
 
 #### User Model
 
