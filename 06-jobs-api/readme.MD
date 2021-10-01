@@ -48,7 +48,7 @@ npm install && npm start
    - Validate - name, email, password - with Mongoose [optional]
    - Hash Password with mongoose middleware (using bcryptjs)
    - Save User
-   - Generate Token
+   - Generate Token [mongoose instance method]
    - Send Response with Token
 
 2. Login User
