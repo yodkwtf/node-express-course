@@ -101,3 +101,19 @@ Swagger UI
       required: true
       description: the job id
 ```
+
+## Notes
+
+#### Hashing Passwords
+
+- Setup using `pre` aka before hook of mongoose middleware
+- We use bcrypt.js to hash password
+- Hashing is one way street, cannot be reversed back to string password
+- Every input change creates a new password
+- Two hashed passwords can be compared using the _compare_ method of bcrypt
+
+#### Instance Methods
+
+- These are the functions that we can have on our documents
+- Instances of our schema where we can use `this` keyword too
+- Helps to simplify controller setup
