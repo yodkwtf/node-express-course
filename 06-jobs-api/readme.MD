@@ -127,10 +127,10 @@ Used to handle errors for the routes that don't exits
 
 5. Delete Job
 
-- Get the **userId** and **jobId** from `request object`
-- Use **findOneAndRemove** method to find specific job and delete it
-- Throw error if specified job isn't found
-- Send success as a response
+   - Get the **userId** and **jobId** from `request object`
+   - Use **findOneAndRemove** method to find specific job and delete it
+   - Throw error if specified job isn't found
+   - Send success as a response
 
 ## Mongoose Errors
 
@@ -155,19 +155,8 @@ Handles errors when the job id provided isn't valid
 - [cors](https://github.com/expressjs/cors#readme) - makes api accessible to multiple domains rather than the same one
 - [xss-clean](https://github.com/jsonmaur/xss-clean) - sanitizes the user input from malicious code
 - [express-rate-limit](https://github.com/nfriedly/express-rate-limit) - limit the user requests
-
-Swagger UI
-
-```yaml
-/jobs/{id}:
-  parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: the job id
-```
+- [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express) - adds swagger to our application
+- [yamljs](https://github.com/jeremyfa/yaml.js#readme) - convert yaml code to something swagger ui can understand
 
 ## Notes
 
@@ -190,3 +179,16 @@ Swagger UI
 - Cross Origin Resource Sharing
 - Mechanism to allow/restrict requested resources from a web server depending on where http req was initiated
 - A cors package is used to make our API accessible to the public
+
+#### API Docs Setup
+
+- We create the API docs using postman docs and [Swagger UI](https://swagger.io/)
+- Export docs from postman by clicking on collection menu and save the json file on pc
+- We need to format the postman exported docs using [APIMATIC](https://www.apimatic.io/) before passing it to Swagger UI
+- Use APIMATIC to format and edit the settings required
+- Go back to dashboard and export the API as **OpenAPIv3.0 (YAML)**
+- Copy the whole exported code and paste it in a swagger editor
+- Edit the id's to dynamic ones for the route params
+- Add all the yaml code to a new file in root called `swagger.yaml`
+- Add the swagger middleware and `/api-docs` path to app.js
+- All Done!!!
