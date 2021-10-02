@@ -85,11 +85,17 @@ npm install && npm start
 #### **jobs.js** - responsible for CRUD functionality of jobs
 
 1. Create Job
+
    - Add the user id as new property on req.body
    - Create a job using the mongoose **create** method
    - Send the job as a response where job is an object with details as its properties
 
-- get all jobs
+2. Get All Jobs
+   - Used **find** method to get all jobs
+   - Filter them using the **createdBy** property to only get user specific jobs
+   - Sort them by the **createdAt** property
+   - Send the jobs as a response along with jobs count
+
 - get a specific single job
 - update a specific job
 - delete a specific job
