@@ -17,10 +17,10 @@ npm install && npm start
 
 - name [string, 3-50 char]
 - email [string, unique, match the regex below]
-  - Email Validation Regex
-    ```regex
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    ```
+  Email Validation Regex
+  ```regex
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  ```
 - password [string, min. 6 char]
 
 #### Jobs Model
@@ -45,12 +45,12 @@ npm install && npm start
 
 ## Routes
 
-#### `auth.js` - used for user authentication
+#### _auth.js_ - used for user authentication
 
 - register user - `app.post('/api/v1/auth/register', register)`
 - login a new user - `app.post('/api/v1/auth/login', login)`
 
-#### `jobs.js` - used for CRUD operations for jobs
+#### _jobs.js_ - used for CRUD operations for jobs
 
 - get all jobs - `app.get('/api/v1/jobs', getAllJobs)`
 - get single job - `app.get('/api/v1/jobs/:id', getJob)`
@@ -58,9 +58,11 @@ npm install && npm start
 - update job - `app.pacth('/api/v1/jobs/:id', updateJob)`
 - delete job - `app.delete('/api/v1/jobs/:id', deleteJob)`
 
+> Note that all the routes above need authentication first.
+
 ## Controllers
 
-#### `auth.js` - responsible for user authentication
+#### **auth.js** - responsible for user authentication
 
 1. Register User
 
@@ -80,11 +82,15 @@ npm install && npm start
    - If correct, generate Token
    - Send Response with Token
 
-#### `jobs.js` - responsible for CRUD functionality of jobs
+#### **jobs.js** - responsible for CRUD functionality of jobs
+
+1. Create Job
+   - Add the user id as new property on req.body
+   - Create a job using the mongoose **create** method
+   - Send the job as a response where job is an object with details as its properties
 
 - get all jobs
 - get a specific single job
-- create a job
 - update a specific job
 - delete a specific job
 
