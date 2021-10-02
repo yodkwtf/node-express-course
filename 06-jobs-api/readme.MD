@@ -148,20 +148,13 @@ Throws an error when the users don't provide valid login credentials
 
 Handles errors when the job id provided isn't valid
 
-## New Packages
+## Packages & Security
 
-#### [bcrypt.js](https://github.com/dcodeIO/bcrypt.js#readme)
-
-- user for hashing passwords
-- hashing is one way street
-- every little input change will result in new hash
-
-#### Security
-
-- helmet
-- cors
-- xss-clean
-- express-rate-limit
+- [bcrypt.js](https://github.com/dcodeIO/bcrypt.js#readme) - hash passwords to make them secure
+- [helmet](https://helmetjs.github.io/) - prevents security attacks
+- [cors](https://github.com/expressjs/cors#readme) - makes api accessible to multiple domains rather than the same one
+- [xss-clean](https://github.com/jsonmaur/xss-clean) - sanitizes the user input from malicious code
+- [express-rate-limit](https://github.com/nfriedly/express-rate-limit) - limit the user requests
 
 Swagger UI
 
@@ -180,7 +173,7 @@ Swagger UI
 
 #### Hashing Passwords
 
-- Setup using `pre` aka before hook of mongoose middleware
+- Setup using `pre` aka `before hook` of mongoose middleware
 - We use bcrypt.js to hash password
 - Hashing is one way street, cannot be reversed back to string password
 - Every input change creates a new password
@@ -191,3 +184,9 @@ Swagger UI
 - These are the functions that we can have on our documents
 - Instances of our schema where we can use `this` keyword too
 - Helps to simplify controller setup
+
+#### CORS
+
+- Cross Origin Resource Sharing
+- Mechanism to allow/restrict requested resources from a web server depending on where http req was initiated
+- A cors package is used to make our API accessible to the public
