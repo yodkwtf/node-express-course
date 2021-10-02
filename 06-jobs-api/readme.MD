@@ -91,12 +91,19 @@ npm install && npm start
    - Send the job as a response where job is an object with details as its properties
 
 2. Get All Jobs
+
    - Used **find** method to get all jobs
    - Filter them using the **createdBy** property to only get user specific jobs
    - Sort them by the **createdAt** property
    - Send the jobs as a response along with jobs count
 
-- get a specific single job
+3. Get Job
+   - Get the **userId** from `req.user`
+   - Get the **jobId** from `req.params`
+   - Use **findOne** method to find the single job by jobId and userId
+   - Throw 404 error if job isn't found
+   - Send the job as the response
+
 - update a specific job
 - delete a specific job
 

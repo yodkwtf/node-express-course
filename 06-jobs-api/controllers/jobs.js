@@ -13,7 +13,22 @@ const getAllJobs = async (req, res) => {
 
 // # GET SINGLE JOB
 const getJob = async (req, res) => {
-  res.send('get single job');
+  // get the user id from user object and job id from query params [both in req object]
+  const {
+    user: { userId },
+    params: { id: jobId },
+  } = req;
+
+  // find the single job with its id = jobID and created by the user
+  const job = await Job.findOne({ createdBy: userId, _id: jobId });
+
+  // if job isnt correct
+  if (!job) {
+    throw new NotFoundError(`No job found with id: ${jobId}`);
+  }
+
+  // send response
+  res.status(StatusCodes.OK).json({ job });
 };
 
 // # CREATE JOB
