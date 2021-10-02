@@ -97,14 +97,24 @@ npm install && npm start
    - Sort them by the **createdAt** property
    - Send the jobs as a response along with jobs count
 
-3. Get Job
+3. Get Single Job
+
    - Get the **userId** from `req.user`
    - Get the **jobId** from `req.params`
    - Use **findOne** method to find the single job by jobId and userId
    - Throw 404 error if job isn't found
    - Send the job as the response
 
-- update a specific job
+4. Update Job
+
+   - Get the **userId** from `req.user`
+   - Get the **jobId** from `req.params`
+   - Get the current **company** and **position** from `req.body`
+   - Check if company and position isn' empty
+   - Use **findOneAndUpdate** method to update the job
+   - Throw error if job isn't found
+   - Send the updated job as a response
+
 - delete a specific job
 
 ## New Packages
