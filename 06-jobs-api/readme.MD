@@ -136,9 +136,13 @@ Used to handle errors for the routes that don't exits
 
 > Some of the mongoose errors are customized to give the user a better experience when using the app.
 
-#### Duplicate Error
+#### Duplicate Error (Email)
 
-Used to handle errors when the users try to register with accounts that already exist
+Used to handle errors when the users try to register with emails that already exist in database
+
+#### Validation Error
+
+Used to handle errors when the users don't provide valid login credentials
 
 ## New Packages
 
