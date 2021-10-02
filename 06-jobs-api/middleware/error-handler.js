@@ -20,9 +20,16 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.msg = `Duplicate value entered for ${Object.keys(
       err.keyValue
     )} field, please choose another value`;
-    customError.statusCode = 400;
+    customError.statusCode = StatusCodes.BAD_REQUEST;
   }
 
+  // if the job format isnt correct
+  if (err.name === 'CastError') {
+    customError.msg = `No job found with id : ${err.value}`;
+    customError.statusCode = StatusCodes.NOT_FOUND;
+  }
+
+  // // errors we were sending before
   // return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ err });
   return res.status(customError.statusCode).json({ msg: customError.msg });
 };

@@ -136,13 +136,17 @@ Used to handle errors for the routes that don't exits
 
 > Some of the mongoose errors are customized to give the user a better experience when using the app.
 
-#### Duplicate Error (Email)
+#### Duplicate Error (Same Email)
 
 Used to handle errors when the users try to register with emails that already exist in database
 
-#### Validation Error
+#### Validation Error (Wrong email/password)
 
-Used to handle errors when the users don't provide valid login credentials
+Throws an error when the users don't provide valid login credentials
+
+#### Cast Error (Uncorrect job id)
+
+Handles errors when the job id provided isn't valid
 
 ## New Packages
 
