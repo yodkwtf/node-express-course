@@ -115,7 +115,12 @@ npm install && npm start
    - Throw error if job isn't found
    - Send the updated job as a response
 
-- delete a specific job
+5. Delete Job
+
+- Get the **userId** and **jobId** from `request object`
+- Use **findOneAndRemove** method to find specific job and delete it
+- Throw error if specified job isn't found
+- Send success as a response
 
 ## New Packages
 
