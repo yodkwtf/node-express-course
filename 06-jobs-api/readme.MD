@@ -35,6 +35,8 @@ npm install && npm start
 
 #### Auth Middleware
 
+Used to handle the authentication part of the app
+
 - Get the auth header
 - Verify its syntax
 - Extract the JWT token
@@ -42,6 +44,14 @@ npm install && npm start
 - Create a user object in req so it can be accessed in the routes
 - Add the middleware to all the required routes
 - If all routes need it, add it next to the base api url in the app.js
+
+#### Error Handler
+
+Used to handle all types of mongoose and server errors
+
+#### Not Found
+
+Used to handle errors for the routes that don't exits
 
 ## Routes
 
@@ -122,6 +132,14 @@ npm install && npm start
 - Throw error if specified job isn't found
 - Send success as a response
 
+## Mongoose Errors
+
+> Some of the mongoose errors are customized to give the user a better experience when using the app.
+
+#### Duplicate Error
+
+Used to handle errors when the users try to register with accounts that already exist
+
 ## New Packages
 
 #### [bcrypt.js](https://github.com/dcodeIO/bcrypt.js#readme)
@@ -129,12 +147,6 @@ npm install && npm start
 - user for hashing passwords
 - hashing is one way street
 - every little input change will result in new hash
-
-#### Mongoose Errors
-
-- Validation Errors
-- Duplicate (Email)
-- Cast Error
 
 #### Security
 
