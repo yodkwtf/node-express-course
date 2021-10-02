@@ -127,10 +127,10 @@ Used to handle errors for the routes that don't exits
 
 5. Delete Job
 
-- Get the **userId** and **jobId** from `request object`
-- Use **findOneAndRemove** method to find specific job and delete it
-- Throw error if specified job isn't found
-- Send success as a response
+    - Get the **userId** and **jobId** from `request object`
+    - Use **findOneAndRemove** method to find specific job and delete it
+    - Throw error if specified job isn't found
+    - Send success as a response
 
 ## Mongoose Errors
 
