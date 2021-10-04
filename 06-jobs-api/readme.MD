@@ -180,9 +180,30 @@ Handles errors when the job id provided isn't valid
 - Mechanism to allow/restrict requested resources from a web server depending on where http req was initiated
 - A cors package is used to make our API accessible to the public
 
+#### Deployment
+
+> The project is deployed to [Heroku](https://www.heroku.com/) at https://jobs-api-o6-dk.herokuapp.com/ and following are steps for the same.
+
+- Create a separate copy of the application to make things easy.
+- Install heroku cli and check if it is installed by typing `heroku -v` in the terminal
+- Setup the installed node version in **package.json**
+  `"engines":{ "node":"14.x" }`
+- Change the start command in **package.json** from `nodemon app.js` to `node app.js`
+- Create a new file called **Procfile** with no extensions and write `web: node app.js`
+- Initlaize empty git repo `git init`
+- Stage the changes `git add .`
+- Commit the changes `git commit -m 'init commit'`
+- Login to heroku from terminal `heroku login`
+- Create new heroku application `heroku create <app name>`
+- Check the remote repo `git remote -v`
+- Add the env varibales using heroku GUI [command line is complex]
+- Push the app to heroku `git push heroku master`
+- All Done!!!
+
 #### API Docs Setup
 
-- We create the API docs using postman docs and [Swagger UI](https://swagger.io/)
+> The application docs are created using Postman and [Swagger UI](https://swagger.io/) and here are the steps for the same.
+
 - Export docs from postman by clicking on collection menu and save the json file on pc
 - We need to format the postman exported docs using [APIMATIC](https://www.apimatic.io/) before passing it to Swagger UI
 - Use APIMATIC to format and edit the settings required
