@@ -1,8 +1,22 @@
-#### Setup
+## Jobs API
 
-```bash
-npm install && npm start
-```
+The api is created so that users can keep a track of all the jobs they have applied for by sending a post request to the server and mention the specific properties like _position_, _company_, _job status_, etc.
+
+When people are looking for jobs, they apply to a dozens of places and at times it bacomes veru tedious to manage and maintain every single one of them. Solving this problem is the main objective of this API.
+
+## Preview
+
+The API is deployed live to heroku at https://jobs-api-o6-dk.herokuapp.com/ with awesome documentation using Swagger UI.
+
+## Packages & Security
+
+- [bcrypt.js](https://github.com/dcodeIO/bcrypt.js#readme) - hash passwords to make them secure
+- [helmet](https://helmetjs.github.io/) - prevents security attacks
+- [cors](https://github.com/expressjs/cors#readme) - makes api accessible to multiple domains rather than the same one
+- [xss-clean](https://github.com/jsonmaur/xss-clean) - sanitizes the user input from malicious code
+- [express-rate-limit](https://github.com/nfriedly/express-rate-limit) - limit the user requests
+- [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express) - adds swagger to our application
+- [yamljs](https://github.com/jeremyfa/yaml.js#readme) - convert yaml code to something swagger ui can understand
 
 ## Models
 
@@ -125,7 +139,7 @@ Used to handle errors for the routes that don't exits
    - Throw error if specified job isn't found
    - Send success as a response
 
-## Mongoose Errors
+## Errors
 
 > Some of the mongoose errors are customized to give the user a better experience when using the app.
 
@@ -140,16 +154,6 @@ Throws an error when the users don't provide valid login credentials
 #### Cast Error (Uncorrect job id)
 
 Handles errors when the job id provided isn't valid
-
-## Packages & Security
-
-- [bcrypt.js](https://github.com/dcodeIO/bcrypt.js#readme) - hash passwords to make them secure
-- [helmet](https://helmetjs.github.io/) - prevents security attacks
-- [cors](https://github.com/expressjs/cors#readme) - makes api accessible to multiple domains rather than the same one
-- [xss-clean](https://github.com/jsonmaur/xss-clean) - sanitizes the user input from malicious code
-- [express-rate-limit](https://github.com/nfriedly/express-rate-limit) - limit the user requests
-- [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express) - adds swagger to our application
-- [yamljs](https://github.com/jeremyfa/yaml.js#readme) - convert yaml code to something swagger ui can understand
 
 ## Notes
 
@@ -213,3 +217,16 @@ Handles errors when the job id provided isn't valid
 - Add all the yaml code to a new file in root called `swagger.yaml`
 - Add the swagger middleware and `/api-docs` path to app.js
 - All Done!!!
+
+#### Local Setup
+
+- Clone this repo first if you haven't
+  ```bash
+  git clone https://github.com/yodkwtf/nodejs-course.git
+  ```
+- Use the terminal and navigate to `06-jobs-api` directory
+- Install the dependencies and run the server
+  ```bash
+  npm install && npm start
+  ```
+- Navigate to the specific port mentioned in `app.js` or test all the routes in something like postman or thunder-client.
