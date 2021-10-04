@@ -4,13 +4,6 @@
 npm install && npm start
 ```
 
-#### Database Connection
-
-1. Setup `.env` in the root
-2. Add `MONGO_URI` with correct password and database name
-3. Import `connect.js` in app.js
-4. Invoke in start()
-
 ## Models
 
 #### User Model
@@ -62,13 +55,13 @@ Used to handle errors for the routes that don't exits
 
 #### _jobs.js_ - used for CRUD operations for jobs
 
+> Note that all the routes below need authentication first.
+
 - get all jobs - `app.get('/api/v1/jobs', getAllJobs)`
 - get single job - `app.get('/api/v1/jobs/:id', getJob)`
 - create job - `app.post('/api/v1/jobs', createJob)`
 - update job - `app.pacth('/api/v1/jobs/:id', updateJob)`
 - delete job - `app.delete('/api/v1/jobs/:id', deleteJob)`
-
-> Note that all the routes above need authentication first.
 
 ## Controllers
 
@@ -159,6 +152,13 @@ Handles errors when the job id provided isn't valid
 - [yamljs](https://github.com/jeremyfa/yaml.js#readme) - convert yaml code to something swagger ui can understand
 
 ## Notes
+
+#### Database Connection
+
+- Setup `.env` in the root
+- Add `MONGO_URI` with correct password and database name
+- Import `connect.js` in app.js
+- Invoke in start() in `app.js`
 
 #### Hashing Passwords
 
