@@ -182,7 +182,7 @@ Handles errors when the job id provided isn't valid
 
 #### Deployment
 
-> The project is deployed to [Heroku](https://www.heroku.com/) at https://jobs-api-o6-dk.herokuapp.com/ and following are steps for the same.
+> The api is deployed to [Heroku](https://www.heroku.com/) at https://jobs-api-o6-dk.herokuapp.com/ and following are steps for the same.
 
 - Create a separate copy of the application to make things easy.
 - Install heroku cli and check if it is installed by typing `heroku -v` in the terminal
@@ -200,13 +200,13 @@ Handles errors when the job id provided isn't valid
 - Push the app to heroku `git push heroku master`
 - All Done!!!
 
-#### API Docs Setup
+#### Documentation
 
-> The application docs are created using Postman and [Swagger UI](https://swagger.io/) and here are the steps for the same.
+> The api docs are created using Postman and [Swagger UI](https://swagger.io/) and here are the steps for the same.
 
 - Export docs from postman by clicking on collection menu and save the json file on pc
-- We need to format the postman exported docs using [APIMATIC](https://www.apimatic.io/) before passing it to Swagger UI
-- Use APIMATIC to format and edit the settings required
+- Format the postman exported docs using [APIMATIC](https://www.apimatic.io/) before passing it to Swagger UI
+- Edit the required settings in APIMATIC
 - Go back to dashboard and export the API as **OpenAPIv3.0 (YAML)**
 - Copy the whole exported code and paste it in a swagger editor
 - Edit the id's to dynamic ones for the route params
