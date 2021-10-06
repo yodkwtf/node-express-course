@@ -1,8 +1,8 @@
 ## File Upload
 
-A mini app created to learn how to handle file uploads. While there are many ways to do it, we use **express-fileupload** library to handle the uploads and **cloudinary** service option to upload images to the cloud.
+A mini app created to learn how to handle file uploads. While there are many ways to do it, we use [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) library to handle the uploads and **cloudinary** service option to upload images to the cloud.
 
-> The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you add the product to the DB you need to add the product image to the server since the product needs the path for that image.
+> The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you create and add a new product you need to add the product image to the server since the new product will need the path for its image.
 
 #### Goals
 
@@ -25,13 +25,10 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
   npm install && npm start
   ```
 
-## Packages
-
-- `express-async-errors` - removes the need of creating an async wrapper middleware to wrap the trycatch block of all the controllers and does all the heavy lifting itself
-- `jsonwebtoken` - used to sign and decode json web tokens
-- `http-status-codes` - to send http error codes based on request names instead of hardcoding them
-
 ## Notes
+
+- We need to make sure to upload the product image to the server before creating that product since creating the product will demand the image path from us.
+- Make sure to the directory where the images are uploaded is publicly available.
 
 #### Models
 
@@ -51,8 +48,9 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 
 1. Create Product in `productController.js`
 
-   - Used to create a new product
-   - Uses POST method
+   - Take product data from `req.body`
+   - Use mongoose **create** method to create a new product
+   - Send the newly created product as the response
 
 2. Get All Products in `productController.js`
 
@@ -61,5 +59,8 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 
 3. Upload Product Image in `uploadsController.js`
 
-   - Used to upload the product image
-   - Uses POST method
+   - Get productImage from `req.files.image` via [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package
+   - Create the path for the images where to save them
+   - Make sure the directory is public
+   - Use **mv** function of the package to move the image to the specified directory
+   - Send image path as a response
