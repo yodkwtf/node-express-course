@@ -29,6 +29,8 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 
 - We need to make sure to upload the product image to the server before creating that product since creating the product will demand the image path from us.
 - Make sure to the directory where the images are uploaded is publicly available.
+- For the frontend form, everytime we upload an image, we send a POST request to `products/uploads` and save the image src in the frontend and only when we submit the form we make a POST request to `/products` to create the new product.
+- Hence, we are getting image path first and then only using that path to create the product.
 
 #### Models
 
