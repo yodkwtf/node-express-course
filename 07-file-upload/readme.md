@@ -54,8 +54,8 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 
 2. Get All Products in `productController.js`
 
-   - Used to get the list of all products
-   - Uses GET method
+   - Use mongoose **find** method to get all the products
+   - Send the products as the response
 
 3. Upload Product Image in `uploadsController.js`
 
