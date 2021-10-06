@@ -40,3 +40,26 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
    - Product Name [String & Required]
    - Product Price [Number & Required]
    - Product Image [String & Required]
+
+#### Routes
+
+1. `post('/', createProduct)` - Create a new product
+2. `get('/', getAllProducts)` - Get all the products
+3. `post('/uploads', uploadProductImage)` - Upload the product image
+
+#### Controllers
+
+1. Create Product in `productController.js`
+
+   - Used to create a new product
+   - Uses POST method
+
+2. Get All Products in `productController.js`
+
+   - Used to get the list of all products
+   - Uses GET method
+
+3. Upload Product Image in `uploadsController.js`
+
+   - Used to upload the product image
+   - Uses POST method
