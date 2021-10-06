@@ -3,7 +3,7 @@
 A collection of tutorials, projects, and APIs from the node and express course I'm taking. For more info about a specific project, navigate to that project's directory and check out the readme file.
 I documented every project as much as I could in its readme file.
 
-### Contents
+#### Contents
 
 1. [Node Tutorial](/01-node-tutorial)
 2. [Express Tutorial](/02-express-tutorial)
@@ -11,8 +11,13 @@ I documented every project as much as I could in its readme file.
 4. [Store API](/04-store-api)
 5. [JWT Basics](/05-JWT-Basics)
 6. [Jobs API](/06-jobs-api)
+7. [File Upload](/06-file-upload)
 
-### Stack
+## Stack
+
+The project uses a lot of different tools and technologies but it mainly points to **node** and **express** related stuff. Some common tools that are being used in almost all the products are listed below.
+
+#### Resources
 
 - [Nodejs - Official Docs](https://nodejs.org/en/)
 - [NPM - Download Packages](https://www.npmjs.com/)
@@ -20,7 +25,7 @@ I documented every project as much as I could in its readme file.
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - [Heroku](https://www.heroku.com/)
 
-### Packages
+#### Packages
 
 - [ExpressJs](https://expressjs.com/)
 - [Nodemon](https://nodemon.io/)
@@ -30,7 +35,7 @@ I documented every project as much as I could in its readme file.
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
 - [http-status-codes](https://github.com/prettymuchbryce/http-status-codes#readme)
 
-### Install & Run
+#### Install & Run
 
 Clone this project locally
 
