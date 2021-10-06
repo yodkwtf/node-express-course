@@ -1,6 +1,6 @@
 ## File Upload
 
-A mini app created to learn how to handle file uploads. While there are many ways to do it, we use **express-file-upload** library to handle the uploads and **cloudinary** service option to upload images to the cloud.
+A mini app created to learn how to handle file uploads. While there are many ways to do it, we use **express-fileupload** library to handle the uploads and **cloudinary** service option to upload images to the cloud.
 
 > The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you add the product to the DB you need to add the product image to the server since the product needs the path for that image.
 
