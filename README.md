@@ -11,7 +11,7 @@ I documented every project as much as I could in its readme file.
 4. [Store API](/04-store-api)
 5. [JWT Basics](/05-JWT-Basics)
 6. [Jobs API](/06-jobs-api)
-7. [File Upload](/06-file-upload)
+7. [File Upload](/07-file-upload)
 
 ## Stack
 

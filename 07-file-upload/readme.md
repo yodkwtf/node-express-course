@@ -32,3 +32,11 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 - `http-status-codes` - to send http error codes based on request names instead of hardcoding them
 
 ## Notes
+
+#### Models
+
+1. Product
+   - Structure for the all single products
+   - Product Name [String & Required]
+   - Product Price [Number & Required]
+   - Product Image [String & Required]
