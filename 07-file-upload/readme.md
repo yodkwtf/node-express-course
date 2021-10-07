@@ -2,30 +2,33 @@
 
 A mini app created to learn how to handle file uploads. While there are many ways to do it, we use [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) library to handle the uploads and [cloudinary](https://cloudinary.com/) service option to upload images to the cloud.
 
-> The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you create and add a new product you need to add the product image to the server since the new product will need the path for its image.
-
 #### Goals
 
-- Learning how to upload files to the servers
+- Learning how to work with file uploads
 - Uploading images using postman
+- Uploading images directly from servers to a cloud service like cloudinary
 
 ## Preview
 
 The app was too small so I chose not deploy it anywhere. The only way to preview it is by running it locally.
 
-#### How to run?
+#### Setup
 
-- Clone this repo first if you haven't
-  ```bash
-  git clone https://github.com/yodkwtf/nodejs-course.git
-  ```
-- Use the terminal and navigate to `07-file-upload` directory
-- Install the dependencies and run the server
-  ```bash
-  npm install && npm start
-  ```
+Clone this repo first if you haven't
+
+```bash
+git clone https://github.com/yodkwtf/nodejs-course.git
+```
+
+Navigate to project directory, install dependencies and run
+
+```bash
+npm install && npm start
+```
 
 ## Notes
+
+> The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you create and add a new product you need to add the product image to the server since the new product will need the path for its image.
 
 #### Models
 
@@ -57,15 +60,15 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 3. Upload Product Image Local in `uploadsController.js`
 
    - Get productImage from `req.files.image` via [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package
-   - Create the path for the images where to save them
-   - Make sure the directory is public
+   - Create the path for the images where they need to be saved
+   - Make sure the directory is publicly available
    - Use **mv** function of the package to move the image to the specified directory
    - Send image path as a response
 
 4. Upload Product Image in `uploadsController.js`
 
    - Import cloudinary to the controller
-   - Use **tempFile** option of [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package to temprarily store the files to the server before uploading them to cloudinary
+   - Use **tempFile** option of [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package to temporarily store the files to the server before uploading them to cloudinary
    - Use **cloudinary.uploader.upload(tempImgPath)** method to upload it to cloudinary
    - Pass in the options object to specify the folder and all that
    - Use the **fs** module to remove the image from temp directory after uploading it to cloudinary
@@ -84,9 +87,9 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 
 #### Cloudinary
 
-- We can always store the uploads to our servers byt storing them at a cloud is a better option as we get more space, speed, etc.
-- That's why we use [cloudinary](https://cloudinary.com/) in this project.
-- Setup 3 varibales in .env by the name _cloud_name_, _cloud_api_key_, and _cloud_api_secret_.
+- We can always store the uploads to our servers but storing them at a cloud is a better option as we get more space, speed, etc.
+- We use [cloudinary](https://cloudinary.com/) service in this project.
+- Setup 3 variables in .env by the name _cloud_name_, _cloud_api_key_, and _cloud_api_secret_.
 - Enter the required values and install the [cloudinary package](https://www.npmjs.com/package/cloudinary).
 - Import it in `app.js`and **must use v2**
 - Run the config method and pass the required data from `.env` variables

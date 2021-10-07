@@ -37,7 +37,7 @@ The project uses a lot of different tools and technologies but it mainly points 
 
 ## Install & Run
 
-Clone this project locally
+Clone therepo locally
 
 ```bash
   git clone https://github.com/yodkwtf/nodejs-course.git
