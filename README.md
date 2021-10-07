@@ -35,7 +35,7 @@ The project uses a lot of different tools and technologies but it mainly points 
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
 - [http-status-codes](https://github.com/prettymuchbryce/http-status-codes#readme)
 
-#### Install & Run
+## Install & Run
 
 Clone this project locally
 
