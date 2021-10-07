@@ -68,6 +68,7 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
    - Use **tempFile** option of [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package to temprarily store the files to the server before uploading them to cloudinary
    - Use **cloudinary.uploader.upload(tempImgPath)** method to upload it to cloudinary
    - Pass in the options object to specify the folder and all that
+   - Use the **fs** module to remove the image from temp directory after uploading it to cloudinary
    - Send the cloudinary image url as a response
 
 #### Alerts

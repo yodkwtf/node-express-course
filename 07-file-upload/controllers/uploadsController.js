@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const cloudinary = require('cloudinary').v2;
@@ -51,6 +52,9 @@ const uploadProductImage = async (req, res) => {
       folder: 'nodejs-file-upload', // specify the folder where to save
     }
   );
+
+  // remove the image from temp directory
+  fs.unlinkSync(req.files.image.tempFilePath);
 
   // send image url as response
   return res.status(StatusCodes.OK).json({ image: { src: result.secure_url } });
