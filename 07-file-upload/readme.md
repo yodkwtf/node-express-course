@@ -54,7 +54,7 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
    - Use mongoose **find** method to get all the products
    - Send the products as the response
 
-3. Upload Product Image in `uploadsController.js`
+3. Upload Product Image Local in `uploadsController.js`
 
    - Get productImage from `req.files.image` via [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package
    - Create the path for the images where to save them
@@ -62,10 +62,19 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
    - Use **mv** function of the package to move the image to the specified directory
    - Send image path as a response
 
+4. Upload Product Image in `uploadsController.js`
+
+   - Import cloudinary to the controller
+   - Use **tempFile** option of [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) package to temprarily store the files to the server before uploading them to cloudinary
+   - Use **cloudinary.uploader.upload(tempImgPath)** method to upload it to cloudinary
+   - Pass in the options object to specify the folder and all that
+   - Send the cloudinary image url as a response
+
 #### Alerts
 
 - We need to make sure to upload the product image to the server before creating that product since creating the product will demand the image path from us.
 - Make sure the directory where the images are uploaded is publicly available.
+- We use `express-fileupload` to create a temp directory to store the image uploads and then we provide that path while uploading those images to the cloudinary service.
 
 #### Frontend
 
@@ -80,3 +89,4 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
 - Enter the required values and install the [cloudinary package](https://www.npmjs.com/package/cloudinary).
 - Import it in `app.js`and **must use v2**
 - Run the config method and pass the required data from `.env` variables
+- Create the function in `uploadsController.js`
