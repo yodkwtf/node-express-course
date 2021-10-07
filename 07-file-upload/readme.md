@@ -1,6 +1,6 @@
 ## File Upload
 
-A mini app created to learn how to handle file uploads. While there are many ways to do it, we use [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) library to handle the uploads and **cloudinary** service option to upload images to the cloud.
+A mini app created to learn how to handle file uploads. While there are many ways to do it, we use [express-fileupload](https://github.com/richardgirges/express-fileupload#readme) library to handle the uploads and [cloudinary](https://cloudinary.com/) service option to upload images to the cloud.
 
 > The idea is that you're the admin of an E-commerce store and you can add-in the new products using the form. However, before you create and add a new product you need to add the product image to the server since the new product will need the path for its image.
 
@@ -26,11 +26,6 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
   ```
 
 ## Notes
-
-- We need to make sure to upload the product image to the server before creating that product since creating the product will demand the image path from us.
-- Make sure to the directory where the images are uploaded is publicly available.
-- For the frontend form, everytime we upload an image, we send a POST request to `products/uploads` and save the image src in the frontend and only when we submit the form we make a POST request to `/products` to create the new product.
-- Hence, we are getting image path first and then only using that path to create the product.
 
 #### Models
 
@@ -66,3 +61,22 @@ The app was too small so I chose not deploy it anywhere. The only way to preview
    - Make sure the directory is public
    - Use **mv** function of the package to move the image to the specified directory
    - Send image path as a response
+
+#### Alerts
+
+- We need to make sure to upload the product image to the server before creating that product since creating the product will demand the image path from us.
+- Make sure the directory where the images are uploaded is publicly available.
+
+#### Frontend
+
+- Everytime we upload an image, we send a POST request to `/products/uploads` and save the image src in the frontend and only when we submit the form we make a POST request to `/products` to create the new product.
+- Hence, we are getting image path first and then only using that path to create the product.
+
+#### Cloudinary
+
+- We can always store the uploads to our servers byt storing them at a cloud is a better option as we get more space, speed, etc.
+- That's why we use [cloudinary](https://cloudinary.com/) in this project.
+- Setup 3 varibales in .env by the name _cloud_name_, _cloud_api_key_, and _cloud_api_secret_.
+- Enter the required values and install the [cloudinary package](https://www.npmjs.com/package/cloudinary).
+- Import it in `app.js`and **must use v2**
+- Run the config method and pass the required data from `.env` variables
