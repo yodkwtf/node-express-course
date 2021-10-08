@@ -13,10 +13,11 @@ I documented every project as much as I could in its readme file.
 6. [Jobs API](/06-jobs-api)
 7. [File Upload](/07-file-upload)
 8. [Send Email](/08-send-email)
+9. [Stripe Payment](/09-stripe-payment)
 
 ## Stack
 
-The project uses a lot of different tools and technologies but it mainly points to **node** and **express** related stuff. Some common tools that are being used in almost all the products are listed below.
+The project uses a lot of different tools and technologies but it mainly points to **node** and **express** related stuff. Some common tech stack that are being used in almost all the products are listed below.
 
 #### Resources
 
@@ -33,12 +34,11 @@ The project uses a lot of different tools and technologies but it mainly points 
 - [Mongoose](https://mongoosejs.com/)
 - [dotenv](https://github.com/motdotla/dotenv#readme)
 - [Express Async Errors](https://github.com/davidbanham/express-async-errors#readme)
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
 - [http-status-codes](https://github.com/prettymuchbryce/http-status-codes#readme)
 
 ## Install & Run
 
-Clone therepo locally
+Clone the repo locally
 
 ```bash
   git clone https://github.com/yodkwtf/nodejs-course.git
