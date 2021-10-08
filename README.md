@@ -12,6 +12,7 @@ I documented every project as much as I could in its readme file.
 5. [JWT Basics](/05-JWT-Basics)
 6. [Jobs API](/06-jobs-api)
 7. [File Upload](/07-file-upload)
+8. [Send Email](/08-send-email)
 
 ## Stack
 
