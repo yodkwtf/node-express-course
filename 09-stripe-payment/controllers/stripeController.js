@@ -9,7 +9,7 @@ const stripeController = async (req, res) => {
     return total_amount + shipping_fee;
   };
 
-  // communicate with stripe
+  // communicate with stripe to get confirmation
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(),
     currency: 'inr',

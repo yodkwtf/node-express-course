@@ -2,9 +2,13 @@
 
 A small app created to learn how to handle online payments using [stripe](https://stripe.com/in).
 
+> During online paymnets we can't just send a payment request to stripe directly from the frontend. That would be highly unsecure. That's why we communicate with the server to send the payment intent from stripe to the frontend and hence, verifying the payment.
+
 #### Goals
 
 - Learning payment handling with stripe
+- Securing payments with nodejs and stripe
+- Verify frontend costs with the server
 
 ## Preview
 
@@ -37,7 +41,7 @@ npm install && npm start
 - The sent items can be extracted via **req.body** on the server
 - On the server, verify and totals with what the frontend is saying
 - Communicate with stripe to get the client_secret
-- Verify
+- Verify the payment
 
 #### Stripe Controller
 
@@ -45,5 +49,5 @@ npm install && npm start
 - Get the cart data from the frontend via `req.body`
 - Calculate and confirm the product total cost on the server since _it's very easy to manipulate cost from the frontend_ [usually done by comparing costs to the database]
 - Communicate with stripe to specify payment details
-- Send the client secret as a response to the frontend
-- This will verify and allow users to proceed
+- Send the client secret from stripe as a response to the frontend
+- This will verify the payment and allow users to proceed
