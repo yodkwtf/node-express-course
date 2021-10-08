@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 
 // controller
+const stripeController = require('./controllers/stripeController');
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 // stripe
+app.post('/stripe', stripeController);
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
