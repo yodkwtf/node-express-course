@@ -2,9 +2,13 @@
 
 A small app created to learn how to send emails using nodejs. For this one we're using a very popular package known as [Nodemailer](https://nodemailer.com/about/) to set up the logic along with a service called [Ethereal](https://ethereal.email/) to set up a testing account.
 
+> Since this is just a basic project, we're using a service called Ethereal for testing purposes but in production we will use something much more secure and popular like SendGrid or MailGun to do the same. In such cases, the transporter details must be set up as environment variables.
+
 #### Goals
 
 - Sending emails with nodejs
+- Using ethereal for testing purposes
+- Using third party services to send secure automated emails
 
 ## Preview
 
