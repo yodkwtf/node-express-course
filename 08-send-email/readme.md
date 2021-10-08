@@ -1,6 +1,6 @@
 ## Send Email
 
-A small app created to learn how to send emails using nodejs.
+A small app created to learn how to send emails using nodejs. For this one we're using a very popular package known as [Nodemailer](https://nodemailer.com/about/) to set up the logic along with a service called [Ethereal](https://ethereal.email/) to set up a testing account.
 
 #### Goals
 
@@ -25,3 +25,17 @@ npm install && npm start
 ```
 
 ## Notes
+
+- We use [Nodemailer](https://nodemailer.com/about/) to set up the logic but another crucial part of sending emails is a transport service.
+- For testing we have options like _Ethereal_ or _Mailtrap_ and for production, the most popular options are _Sendgrid_ and _Mailgun_. However, we can also use _gmail_ if we want.
+- The setup for testing to prodcution ones are almost the same.
+- In this project we're going to use [Ethereal](https://ethereal.email/).
+
+#### Route
+
+- The route used to send emails is `/send` and the controller is **sendEmail.js**
+- Since we only have one route in the project, there are no routers
+
+#### Controller
+
+- The controller for the `/send` route is **sendEmail.js**
