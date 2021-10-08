@@ -38,4 +38,8 @@ npm install && npm start
 
 #### Controller
 
-- The controller for the `/send` route is **sendEmail.js**
+- Create a _nodemailer_ test account
+- Connect to the transport service - _ethereal_ in our case
+- Set up the details for transporter
+- Set up mail info using specified transporter
+- Send mail info as a response for testing
