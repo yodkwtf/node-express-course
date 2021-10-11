@@ -13,3 +13,6 @@
 
 **Q. Why do we use `validator` package?**
 **A.** Used to automatically validate emails entered by the users instead of manually setting up regex.
+
+**Q. Why do we use `cookie-parser` package?**
+**A.** Used to parse the cookies send by the browser to get them as a token. Express helps us in setting up cookies but there's no built in way to parse them.

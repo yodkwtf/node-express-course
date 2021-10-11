@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 // packages
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 // database
 const connectDB = require('./db/connect');
 // routers
@@ -17,13 +18,19 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 // * MIDDLEWARES
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(cookieParser());
 
 // * ROUTES
-app.use('/api/v1/auth', authRouter);
 
 app.get('/', (req, res) => {
   res.send('E-Commerce API');
 });
+app.get('/api/v1', (req, res) => {
+  console.log(req.cookies);
+  res.send('E-Commerce API');
+});
+
+app.use('/api/v1/auth', authRouter);
 
 // * ERRORS
 app.use(notFoundMiddleware);
