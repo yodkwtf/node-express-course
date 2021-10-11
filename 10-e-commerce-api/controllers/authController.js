@@ -29,8 +29,14 @@ const register = async (req, res) => {
   // cretae a JWT token
   const token = createJWT({ payload: tokenUser });
 
+  // send the cookie
+  res.cookie('token', token, {
+    httpOnly: true,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2), // 1s * 60s * 60min * 24hrs * 2days
+  });
+
   // send back the user as a response
-  res.status(StatusCodes.CREATED).json({ user: tokenUser, token });
+  res.status(StatusCodes.CREATED).json({ user: tokenUser });
 };
 
 // # LOGIN
