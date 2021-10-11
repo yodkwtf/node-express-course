@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
-const jwt = require('jsonwebtoken');
+const { createJWT } = require('../utils');
 
 // # REGISTER USER
 const register = async (req, res) => {
@@ -26,10 +26,8 @@ const register = async (req, res) => {
   // create a token user to send token specific properties
   const tokenUser = { name: user.name, userId: user._id, role: user.role };
 
-  // issue a JWT token
-  const token = jwt.sign(tokenUser, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_LIFETIME,
-  });
+  // cretae a JWT token
+  const token = createJWT({ payload: tokenUser });
 
   // send back the user as a response
   res.status(StatusCodes.CREATED).json({ user: tokenUser, token });
