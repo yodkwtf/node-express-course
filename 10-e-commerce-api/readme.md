@@ -10,3 +10,6 @@
 
 **Q. Why do we use `morgan` package?**
 **A.** Tells us which route we're hitting along with the status code after every request.. Really useful for debugging. We can also set it up to work for development only.
+
+**Q. Why do we use `validator` package?**
+**A.** Used to automatically validate emails entered by the users instead of manually setting up regex.
