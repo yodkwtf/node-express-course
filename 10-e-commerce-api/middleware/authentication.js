@@ -1,6 +1,7 @@
 const CustomError = require('../errors');
 const { isTokenValid } = require('../utils');
 
+// * AUTHENTICATE USER [If they exist]
 const authenticateUser = async (req, res, next) => {
   // get token, if present
   const token = req.signedCookies.token;
@@ -25,4 +26,17 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-module.exports = authenticateUser;
+// * AUTHORIZE PERMISSIONS
+const authorizePermissions = (req, res, next) => {
+  // check if role isnt admin
+  if (req.user.role !== 'admin') {
+    throw new CustomError.UnauthorizedError(
+      'Unauthorized to access this route'
+    );
+  }
+
+  // pass it to next middleware
+  next();
+};
+
+module.exports = { authenticateUser, authorizePermissions };

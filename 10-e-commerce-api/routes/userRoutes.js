@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const authenticateUser = require('../middleware/authentication');
+const {
+  authenticateUser,
+  authorizePermissions,
+} = require('../middleware/authentication');
 
 const {
   getAllUsers,
@@ -11,7 +14,7 @@ const {
 } = require('../controllers/userController');
 
 //# GET ALL USERS
-router.route('/').get(authenticateUser, getAllUsers);
+router.route('/').get(authenticateUser, authorizePermissions, getAllUsers);
 
 // # SHOW CURRENT USER
 router.route('/showMe').get(showCurrentUser);
