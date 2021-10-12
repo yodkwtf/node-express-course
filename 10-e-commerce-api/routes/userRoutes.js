@@ -19,7 +19,7 @@ router
   .get(authenticateUser, authorizePermissions('admin', 'owner'), getAllUsers);
 
 // # SHOW CURRENT USER
-router.route('/showMe').get(showCurrentUser);
+router.route('/showMe').get(authenticateUser, showCurrentUser);
 
 // # UPDATE USER
 router.route('/updateUser').patch(updateUser);
