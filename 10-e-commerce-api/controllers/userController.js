@@ -1,11 +1,30 @@
+const User = require('../models/User');
+const { StatusCodes } = require('http-status-codes');
+const CustomError = require('../errors');
+
 //* GET ALL USERS
 const getAllUsers = async (req, res) => {
-  res.send('get all users');
+  // get all users where role is user
+  const users = await User.find({ role: 'user' }).select('-password');
+
+  // send the response and users
+  res.status(StatusCodes.OK).json({ users });
 };
 
 //* GET SINGLE USER
 const getSingleUser = async (req, res) => {
-  res.send('get single user');
+  // find user by id
+  const user = await User.findOne({ _id: req.params.id }).select('-password');
+
+  // check if user exists by the id
+  if (!user) {
+    throw new CustomError.NotFoundError(
+      `No user found wih id : ${req.params.id}`
+    );
+  }
+
+  // send the user as a response
+  res.status(StatusCodes.OK).json({ user });
 };
 
 //* SHOW CURRENT USER
@@ -15,7 +34,7 @@ const showCurrentUser = async (req, res) => {
 
 //* UPDATE USER
 const updateUser = async (req, res) => {
-  res.send('update user');
+  res.send(req.body);
 };
 
 //* UPDATE USER PASSWORD

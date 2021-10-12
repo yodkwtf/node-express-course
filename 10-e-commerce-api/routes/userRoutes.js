@@ -16,10 +16,10 @@ router.route('/').get(getAllUsers);
 router.route('/showMe').get(showCurrentUser);
 
 // # UPDATE USER
-router.route('/updateUser').post(updateUser);
+router.route('/updateUser').patch(updateUser);
 
 // # UPDATE USER PASSWORD
-router.route('/updateUserPassword').post(updateUserPassowrd);
+router.route('/updateUserPassword').patch(updateUserPassowrd);
 
 // # GET SINGLE USER
 router.route('/:id').get(getSingleUser);
