@@ -35,7 +35,38 @@ const register = async (req, res) => {
 
 // # LOGIN
 const login = async (req, res) => {
-  res.send('the LOGIN controller');
+  // get email and pass
+  const { email, password } = req.body;
+
+  // if no email/password entered
+  if (!email || !password) {
+    throw new CustomError.BadRequestError('Please provide email and password');
+  }
+
+  // find user by email
+  const user = await User.findOne({ email });
+
+  // if no such user found
+  if (!user) {
+    throw new CustomError.UnauthenticatedError('Invalid Credentials');
+  }
+
+  // compare password using instacne method
+  const isPasswordCorrect = await user.comparePassword(password);
+
+  // if password is incorrect
+  if (!isPasswordCorrect) {
+    throw new CustomError.UnauthenticatedError('Invalid Credentials');
+  }
+
+  // if user found, create a token user to send token specific properties
+  const tokenUser = { name: user.name, userId: user._id, role: user.role };
+
+  // create and send cookies with response[utils]
+  attachCookiesToResponse({ res, user: tokenUser });
+
+  // send back the user as a response
+  res.status(StatusCodes.CREATED).json({ user: tokenUser });
 };
 
 // # LOGOUT

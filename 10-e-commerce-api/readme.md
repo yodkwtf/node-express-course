@@ -1,24 +1,24 @@
 ## Notes
 
-#### Packages
+### Packages
 
-- [express-async-errors](https://github.com/davidbanham/express-async-errors#readme)
+#### [express-async-errors](https://github.com/davidbanham/express-async-errors#readme)
 
 When we write a controller function, we wrap everything in try-catch block. Doing that for every controller is a bit tedious so we use the package to do that automatically for us.
 
-- [morgan](https://github.com/expressjs/morgan#readme)
+#### [morgan](https://github.com/expressjs/morgan#readme)
 
 Tells us which route we're hitting along with the status code after every request, really useful for debugging. We can also set it up to work for development only.
 
-- [validator](https://github.com/validatorjs/validator.js)
+#### [validator](https://github.com/validatorjs/validator.js)
 
 Used to automatically validate emails entered by the users instead of manually setting up regex.
 
-- [cookie-parser](https://github.com/expressjs/cookie-parser#readme)
+#### [cookie-parser](https://github.com/expressjs/cookie-parser#readme)
 
 Used to parse the cookies send by the browser to get them as a token. Express helps us in setting up cookies but there's no built in way to parse them.
 
-#### Q/As
+### Q/As
 
 **Q. Why do we need `express.json()` middleware?**
 
