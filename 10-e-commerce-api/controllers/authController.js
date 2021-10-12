@@ -71,7 +71,14 @@ const login = async (req, res) => {
 
 // # LOGOUT
 const logout = async (req, res) => {
-  res.send('the LOGOUT controller');
+  // set up new cookie to remove in  few seconds
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expiresIn: new Date(Date.now()),
+  });
+
+  // send any response to confirm
+  res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
 module.exports = {

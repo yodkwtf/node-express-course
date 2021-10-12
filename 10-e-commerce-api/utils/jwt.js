@@ -16,7 +16,7 @@ const attachCookiesToResponse = ({ res, user }) => {
   // create token
   const token = createJWT({ payload: user });
 
-  // send cookies
+  // create a cookie from token and send cookies
   res.cookie('token', token, {
     httpOnly: true,
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2), // 1s * 60s * 60min * 24hrs * 2days
