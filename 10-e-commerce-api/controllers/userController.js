@@ -4,6 +4,8 @@ const CustomError = require('../errors');
 
 //* GET ALL USERS
 const getAllUsers = async (req, res) => {
+  console.log(req.user);
+
   // get all users where role is user
   const users = await User.find({ role: 'user' }).select('-password');
 
@@ -13,6 +15,8 @@ const getAllUsers = async (req, res) => {
 
 //* GET SINGLE USER
 const getSingleUser = async (req, res) => {
+  console.log(req.user);
+
   // find user by id
   const user = await User.findOne({ _id: req.params.id }).select('-password');
 

@@ -7,12 +7,22 @@ const authenticateUser = async (req, res, next) => {
 
   // if token isnt present
   if (!token) {
-    console.log('error, no token present');
-  } else {
-    console.log('token present');
+    throw new CustomError.UnauthenticatedError('Authentication Invalid');
   }
 
-  next();
+  try {
+    // get the payload [tokenUser]
+    const { name, role, userId } = isTokenValid({ token });
+
+    // add the user to req object
+    req.user = { name, role, userId };
+
+    // pass it to next middleware
+    next();
+  } catch (error) {
+    // if error
+    throw new CustomError.UnauthenticatedError('Authentication Invalid');
+  }
 };
 
 module.exports = authenticateUser;
