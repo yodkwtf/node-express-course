@@ -14,7 +14,9 @@ const {
 } = require('../controllers/userController');
 
 //# GET ALL USERS
-router.route('/').get(authenticateUser, authorizePermissions, getAllUsers);
+router
+  .route('/')
+  .get(authenticateUser, authorizePermissions('admin', 'owner'), getAllUsers);
 
 // # SHOW CURRENT USER
 router.route('/showMe').get(showCurrentUser);

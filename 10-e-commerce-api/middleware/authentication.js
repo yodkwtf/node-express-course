@@ -27,16 +27,19 @@ const authenticateUser = async (req, res, next) => {
 };
 
 // * AUTHORIZE PERMISSIONS
-const authorizePermissions = (req, res, next) => {
-  // check if role isnt admin
-  if (req.user.role !== 'admin') {
-    throw new CustomError.UnauthorizedError(
-      'Unauthorized to access this route'
-    );
-  }
+const authorizePermissions = (...roles) => {
+  // return another func so first one acts as a callback
+  return (req, res, next) => {
+    // if roles array ['owner','admin'] doesnt include the role of user who made the req
+    if (!roles.includes(req.user.role)) {
+      throw new CustomError.UnauthorizedError(
+        'Unauthorized to access this route'
+      );
+    }
 
-  // pass it to next middleware
-  next();
+    // pass it to next middleware
+    next();
+  };
 };
 
 module.exports = { authenticateUser, authorizePermissions };
