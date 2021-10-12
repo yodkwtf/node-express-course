@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
-const { createJWT } = require('../utils');
+const { attachCookiesToResponse } = require('../utils');
 
 // # REGISTER USER
 const register = async (req, res) => {
@@ -26,14 +26,8 @@ const register = async (req, res) => {
   // create a token user to send token specific properties
   const tokenUser = { name: user.name, userId: user._id, role: user.role };
 
-  // cretae a JWT token
-  const token = createJWT({ payload: tokenUser });
-
-  // send the cookie [built in express]
-  res.cookie('token', token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2), // 1s * 60s * 60min * 24hrs * 2days
-  });
+  // create and send cookies with response[utils]
+  attachCookiesToResponse({ res, user: tokenUser });
 
   // send back the user as a response
   res.status(StatusCodes.CREATED).json({ user: tokenUser });
