@@ -1,9 +1,9 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
-const { attachCookiesToResponse } = require('../utils');
+const { attachCookiesToResponse, createTokenUser } = require('../utils');
 
-// # REGISTER USER
+// * REGISTER USER
 const register = async (req, res) => {
   // get the email
   const { name, password, email } = req.body;
@@ -23,8 +23,8 @@ const register = async (req, res) => {
   // create a user with specific properties
   const user = await User.create({ name, email, password, role });
 
-  // create a token user to send token specific properties
-  const tokenUser = { name: user.name, userId: user._id, role: user.role };
+  // get token user[utils] to send token specific properties
+  const tokenUser = createTokenUser(user);
 
   // create and send cookies with response[utils]
   attachCookiesToResponse({ res, user: tokenUser });
@@ -33,7 +33,7 @@ const register = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ user: tokenUser });
 };
 
-// # LOGIN
+// * LOGIN USER
 const login = async (req, res) => {
   // get email and pass
   const { email, password } = req.body;
@@ -59,8 +59,8 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
 
-  // if user found, create a token user to send token specific properties
-  const tokenUser = { name: user.name, userId: user._id, role: user.role };
+  // get token user[utils] to send token specific properties
+  const tokenUser = createTokenUser(user);
 
   // create and send cookies with response[utils]
   attachCookiesToResponse({ res, user: tokenUser });
@@ -69,7 +69,7 @@ const login = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ user: tokenUser });
 };
 
-// # LOGOUT
+// * LOGOUT USER
 const logout = async (req, res) => {
   // set up new cookie to remove in  few seconds
   res.cookie('token', 'logout', {
