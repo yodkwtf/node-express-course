@@ -2,7 +2,7 @@
 
 The api is created so that users can keep a track of all the jobs they have applied for by sending a post request to the server and mention the specific properties like _position_, _company_, _job status_, etc.
 
-When people are looking for jobs, they apply to a dozens of places and at times it bacomes veru tedious to manage and maintain every single one of them. Solving this problem is the main objective of this API.
+When people are looking for jobs, they apply to a dozens of places and at times it bacomes very tedious to manage and maintain every single one of them. Solving this problem is the main objective of this API.
 
 ## Preview
 
