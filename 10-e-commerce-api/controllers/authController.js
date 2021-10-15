@@ -23,7 +23,7 @@ const register = async (req, res) => {
   // create a user with specific properties
   const user = await User.create({ name, email, password, role });
 
-  // get token user[utils] to send token specific properties
+  // create token user[utils] to send only specific properties with token
   const tokenUser = createTokenUser(user);
 
   // create and send cookies with response[utils]
@@ -59,7 +59,7 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
 
-  // get token user[utils] to send token specific properties
+  // create token user[utils] to send only specific properties with token
   const tokenUser = createTokenUser(user);
 
   // create and send cookies with response[utils]
