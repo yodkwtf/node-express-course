@@ -3,7 +3,7 @@ const CustomError = require('../errors');
 const checkPermissions = (requestUser, resourceUserId) => {
   // console.log(requestUser);
   // console.log(resourceUserId);
-  // console.log(typeof resourceUserId);
+  // console.log(typeof resourceUserId); [its an objectId so needs to be converted into string]
 
   // if admin is requesting, continue
   if (requestUser.role === 'admin') return;
