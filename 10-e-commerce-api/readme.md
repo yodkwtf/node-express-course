@@ -1,5 +1,7 @@
 ## Notes
 
+> All the infomation about the different routes/controllers/models are in [guide.md]('/guide.md') including the steps taken to create every single thing in this project.
+
 ### Packages
 
 #### [express-async-errors](https://github.com/davidbanham/express-async-errors#readme)
@@ -35,3 +37,7 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 **Q. Why are we using `if (!this.isModified('password'))` in User model's save function?**
 
 **A.** Because otherwise we end up hashing the passwords everytime a user updates his name/email and we only wanna hash password if it's modified otherwise they wont be able to login after modifying their name/email.
+
+**Q. Why do we need `checkPermissions` utils function?**
+
+**A.** Otherwise any user who's logged in will be able to access the getSingleUser route if he has the ID of any other user and hence accessing their data.

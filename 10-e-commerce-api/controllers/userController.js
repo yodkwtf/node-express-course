@@ -1,7 +1,11 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
-const { createTokenUser, attachCookiesToResponse } = require('../utils');
+const {
+  createTokenUser,
+  attachCookiesToResponse,
+  checkPermissions,
+} = require('../utils');
 
 //* GET ALL USERS
 const getAllUsers = async (req, res) => {
@@ -23,6 +27,9 @@ const getSingleUser = async (req, res) => {
       `No user found wih id : ${req.params.id}`
     );
   }
+
+  // check if user id in params is same as the user who's requesting
+  checkPermissions(req.user, user._id);
 
   // send the user as a response
   res.status(StatusCodes.OK).json({ user });
