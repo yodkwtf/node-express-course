@@ -169,14 +169,14 @@
 - [x] name : {type:String}
 - [x] price: {type:Number}
 - [x] description: {type:String}
-- [] image: {type:String}
-- [] category: {type:String}
-- [] company: {type:String}
-- [] colors: {type:[]}
-- [] featured: {type:Boolean}
-- [] freeShipping: {type:Boolean}
-- [] inventory:{type:Number}
-- [] averageRating:{type:Number}
+- [x] image: {type:String}
+- [x] category: {type:String}
+- [x] company: {type:String}
+- [x] colors: {type:[]}
+- [x] featured: {type:Boolean}
+- [x] freeShipping: {type:Boolean}
+- [x] inventory:{type:Number}
+- [x] averageRating:{type:Number}
 - [] user
 - [] set timestamps
 - [] export Product model
