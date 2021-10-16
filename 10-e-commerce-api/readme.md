@@ -31,3 +31,7 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 **Q. Why do we have `router.route('/:id').get(getSingleUser)` as the last route in user routes?**
 
 **A.** Since we're passing the id in this one, if we have this route before a route like `/showMe` then express will take the `showMe` part of the query params as the id.
+
+**Q. Why are we using `if (!this.isModified('password'))` in User model's save function?**
+
+**A.** Because otherwise we end up hashing the passwords everytime a user updates his name/email and we only wanna hash password if it's modified otherwise they wont be able to login after modifying their name/email.

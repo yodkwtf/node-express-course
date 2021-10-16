@@ -47,12 +47,15 @@ const updateUser = async (req, res) => {
     throw new CustomError.BadRequestError('Please provide all details...');
   }
 
+  // get the user
+  const user = await User.findOne({ _id: req.user.userId });
+
   // update the user
-  const user = await User.findOneAndUpdate(
-    { _id: req.user.userId },
-    { email, name },
-    { new: true, runValidators: true }
-  );
+  user.email = email;
+  user.name = name;
+
+  // save the user
+  await user.save();
 
   // create token user[utils]
   const tokenUser = createTokenUser(user);
@@ -102,3 +105,30 @@ module.exports = {
   updateUser,
   updateUserPassowrd,
 };
+
+// //* UPDATE USER with findOneAndUpdate
+// const updateUser = async (req, res) => {
+//   // check if user entered details
+//   const { email, name } = req.body;
+
+//   // throw err, if missing
+//   if (!email || !name) {
+//     throw new CustomError.BadRequestError('Please provide all details...');
+//   }
+
+//   // update the user
+//   const user = await User.findOneAndUpdate(
+//     { _id: req.user.userId },
+//     { email, name },
+//     { new: true, runValidators: true }
+//   );
+
+//   // create token user[utils]
+//   const tokenUser = createTokenUser(user);
+
+//   // attach cookies to the response
+//   attachCookiesToResponse({ res, user: tokenUser });
+
+//   // send back the response
+//   res.status(StatusCodes.OK).json({ user: tokenUser });
+// };
