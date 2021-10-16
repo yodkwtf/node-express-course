@@ -22,7 +22,7 @@ router
 router.route('/showMe').get(authenticateUser, showCurrentUser);
 
 // # UPDATE USER
-router.route('/updateUser').patch(updateUser);
+router.route('/updateUser').patch(authenticateUser, updateUser);
 
 // # UPDATE USER PASSWORD
 router.route('/updateUserPassword').patch(authenticateUser, updateUserPassowrd);

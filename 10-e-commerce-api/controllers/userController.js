@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
+const { createTokenUser, attachCookiesToResponse } = require('../utils');
 
 //* GET ALL USERS
 const getAllUsers = async (req, res) => {
@@ -38,7 +39,29 @@ const showCurrentUser = async (req, res) => {
 
 //* UPDATE USER
 const updateUser = async (req, res) => {
-  res.send(req.body);
+  // check if user entered details
+  const { email, name } = req.body;
+
+  // throw err, if missing
+  if (!email || !name) {
+    throw new CustomError.BadRequestError('Please provide all details...');
+  }
+
+  // update the user
+  const user = await User.findOneAndUpdate(
+    { _id: req.user.userId },
+    { email, name },
+    { new: true, runValidators: true }
+  );
+
+  // create token user[utils]
+  const tokenUser = createTokenUser(user);
+
+  // attach cookies to the response
+  attachCookiesToResponse({ res, user: tokenUser });
+
+  // send back the response
+  res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
 //* UPDATE USER PASSWORD
