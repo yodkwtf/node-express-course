@@ -208,7 +208,7 @@
 
 - [x] getAllProducts
 - [x] getSingleProduct
-- [] updateProduct
+- [x] updateProduct
 - [] deleteProduct
 - [] typical CRUD, utilize (task or job) project
 - [] remember we check already for role 'admin'

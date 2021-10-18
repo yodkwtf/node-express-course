@@ -1,4 +1,4 @@
-## Notes
+## Description
 
 > All the infomation about the different routes/controllers/models are in [guide.md]('/guide.md') including the steps taken to create every single thing in this project.
 
@@ -41,3 +41,10 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 **Q. Why do we need `checkPermissions` utils function?**
 
 **A.** Otherwise any user who's logged in will be able to access the getSingleUser route if he has the ID of any other user and hence accessing their data.
+
+#### Notes
+
+- In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
+- However, if there are multiple admin roles with multiple access, we would need to comapre the userID with the user that was attached to the product initially and only if they match then the current user would be able to perform functionality.
+- Suppose `product B` was created by a logged user `X` so we attached the X's user id as the user key on `product B`. Now when the user X request a CRUD route, we will check if the product.user matches X.userId and only then allow him to do the tasks.
+- All this isn't implemented in this particular project but that's how it'll work in real life.
