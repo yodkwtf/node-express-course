@@ -8,7 +8,7 @@ const checkPermissions = (requestUser, resourceUserId) => {
   // if admin is requesting, continue
   if (requestUser.role === 'admin') return;
 
-  // if logged user whos requesting is providing his own id in getSingleUser, continue
+  // if logged user is requesting his own resource [for eg, review], continue
   if (requestUser.userId === resourceUserId.toString()) return;
 
   // if not then throw error
