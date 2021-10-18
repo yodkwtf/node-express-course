@@ -38,7 +38,11 @@ const createReview = async (req, res) => {
 
 // * GET ALL REVIEWS
 const getAllReviews = async (req, res) => {
-  res.send('get all reviews');
+  // get all reviews
+  const reviews = Review.find({});
+
+  // send back the response
+  res.status(StatusCodes.CREATED).json({ reviews, count: reviews.count });
 };
 
 // * GET SINGLE REVIEW
