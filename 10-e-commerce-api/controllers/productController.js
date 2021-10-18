@@ -66,7 +66,24 @@ const updateProduct = async (req, res) => {
 
 // * DELETE PRODUCT
 const deleteProduct = async (req, res) => {
-  res.send('delete product');
+  // get product id
+  const { id: productId } = req.params;
+
+  // get single product
+  const product = await Product.findOne({ _id: productId });
+
+  // if no product found
+  if (!product) {
+    throw new CustomError.NotFoundError(
+      `No product found with id : ${productId}`
+    );
+  }
+
+  // delete product from DB [will make sense after reviews]
+  await product.remove();
+
+  // send response
+  res.status(StatusCodes.OK).json({ msg: 'Success! Product was removed.' });
 };
 
 // * UPLOAD PRODUCT Image
