@@ -206,8 +206,8 @@
 
 #### Remaining Controllers (apart from uploadImage)
 
-- [] getAllProducts
-- [] getSingleProduct
+- [x] getAllProducts
+- [x] getSingleProduct
 - [] updateProduct
 - [] deleteProduct
 - [] typical CRUD, utilize (task or job) project

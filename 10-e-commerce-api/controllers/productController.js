@@ -26,6 +26,20 @@ const getAllProducts = async (req, res) => {
 // * GET SINGLE PRODUCT
 const getSingleProduct = async (req, res) => {
   // get product id
+  const { id: productId } = req.params;
+
+  // get single product
+  const product = await Product.findOne({ _id: productId });
+
+  // if no product found
+  if (!product) {
+    throw new CustomError.NotFoundError(
+      `No product found with id : ${productId}`
+    );
+  }
+
+  // send back the response
+  res.status(StatusCodes.OK).json({ product });
 };
 
 // * UPDATE PRODUCT
