@@ -16,12 +16,16 @@ const createProduct = async (req, res) => {
 
 // * GET ALL PRODUCTS
 const getAllProducts = async (req, res) => {
-  res.send('get all products');
+  // get all products
+  const products = await Product.find({});
+
+  // send back the response
+  res.status(StatusCodes.OK).json({ count: products.length, products });
 };
 
 // * GET SINGLE PRODUCT
 const getSingleProduct = async (req, res) => {
-  res.send('get single product');
+  // get product id
 };
 
 // * UPDATE PRODUCT
