@@ -42,6 +42,10 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 **A.** Otherwise any user who's logged in will be able to access the getSingleUser route if he has the ID of any other user and hence accessing their data.
 
+**Q. Why do we use `populate` method?**
+
+**A.** Allows us to reference documents from other collections and get additional info about the them. For eg, when getting all reviews, we can use the method to get info about that product or the user who's review it is.
+
 #### Notes
 
 - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
