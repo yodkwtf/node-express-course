@@ -324,7 +324,7 @@
 
 #### Get All Orders and Get Single Order
 
-- [] getAllOrders - admin only
+- [x] getAllOrders - admin only
 - [] getSingleOrder - chechPermissions
 
 #### Get Current User Orders

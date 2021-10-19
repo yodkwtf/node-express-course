@@ -12,7 +12,11 @@ const fakeStripeAPI = async ({ amount, currency }) => {
 
 // * GET ALL ORDERS
 const getAllOrders = async (req, res) => {
-  res.send('get all orders');
+  // get all orders [admin permission in orderRoutes.js already]
+  const orders = await Order.find({});
+
+  // send back the response
+  res.status(StatusCodes.OK).json({ count: orders.length, orders });
 };
 
 // * GET SINGLE ORDER
