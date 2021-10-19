@@ -40,4 +40,19 @@ const ReviewSchema = new mongoose.Schema(
 // compound index [so that a user can only add one review]
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
+// static method
+ReviewSchema.statics.calculateAverageRating = async function (productId) {
+  console.log(productId);
+};
+
+ReviewSchema.post('save', async function () {
+  // call the static method
+  await this.constructor.calculateAverageRating(this.product);
+});
+
+ReviewSchema.post('remove', async function () {
+  // call the static method
+  await this.constructor.calculateAverageRating(this.product);
+});
+
 module.exports = mongoose.model('Review', ReviewSchema);

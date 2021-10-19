@@ -54,6 +54,10 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 **A.** When we are updating/deleting products we are also updating/deleting their specific reviews side by using the `pre` hook in the model. Using the `.save()` or `.remove()` triggers that hook where as `findOne` ones don't.
 
+**Q. What is the difference between `instance methods` and `static methods`?**
+
+**A.** Both are defined in the model only but we call instance methods on the schema instances in controller whereas static methods are directly invoked on the schema itself (for eg. calcAvgRating).
+
 #### Notes
 
 - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.

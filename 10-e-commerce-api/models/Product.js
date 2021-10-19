@@ -69,6 +69,11 @@ const ProductSchema = new mongoose.Schema(
       default: 0, // will be calculated dynamically
     },
 
+    numOfReviews: {
+      type: Number,
+      default: 0, // will be calculated dynamically
+    },
+
     user: {
       type: mongoose.Types.ObjectId,
       ref: 'User', // access to admin user
