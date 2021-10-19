@@ -76,7 +76,16 @@ const ProductSchema = new mongoose.Schema(
     },
   },
 
-  { timestamps: true } // createdAt and all that
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
+
+// SET UP VIRTUALS
+ProductSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'product',
+  justOne: false,
+  // match: { rating: 5 }, // only get ratings where is 5
+});
 
 module.exports = mongoose.model('Product', ProductSchema);

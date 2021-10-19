@@ -46,6 +46,7 @@ const getAllReviews = async (req, res) => {
     })
     .populate({
       path: 'user',
+      select: 'name',
     });
 
   // send back the response

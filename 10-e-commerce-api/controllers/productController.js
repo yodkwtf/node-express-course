@@ -30,7 +30,7 @@ const getSingleProduct = async (req, res) => {
   const { id: productId } = req.params;
 
   // get single product
-  const product = await Product.findOne({ _id: productId });
+  const product = await Product.findOne({ _id: productId }).populate('reviews'); // using virtuals;
 
   // if no product found
   if (!product) {

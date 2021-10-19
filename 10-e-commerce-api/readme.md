@@ -46,6 +46,10 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 **A.** Allows us to reference documents from other collections and get additional info about the them. For eg, when getting all reviews, we can use the method to get info about that product or the user who's review it is.
 
+**Q. What are `mongoose virtuals`?**
+
+**A.** Think of them as properties that do not exist in the database and only exist logically. We create them on the fly when we wanna compute something.
+
 #### Notes
 
 - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
