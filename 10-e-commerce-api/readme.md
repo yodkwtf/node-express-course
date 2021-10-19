@@ -6,7 +6,7 @@ An e-commerce api created to handle everything that is expected from an e-commer
 
 - Learning CRUD opeartions
 - JWT login and sending cookies
-- Handle multiple user at once
+- Handling multiple user at once
 - User based permissions
 - Linking different collections together
 - Dynamic data update
@@ -14,9 +14,6 @@ An e-commerce api created to handle everything that is expected from an e-commer
 - Creating API docs
 
 > All the infomation about the different routes/controllers/models and rest of the functionality are in [guide.md]('/guide.md') including the steps taken to create every single thing in this project.
-
-
-
 
 #### Live Preview
 
