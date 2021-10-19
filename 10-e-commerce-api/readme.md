@@ -1,8 +1,39 @@
-## Description
+## E-Commerce API
 
-> All the infomation about the different routes/controllers/models are in [guide.md]('/guide.md') including the steps taken to create every single thing in this project.
+An e-commerce api created to handle everything that is expected from an e-commerce store. It handles multiple user logins, admin routes, CRUD opeartions for products, reviews, orders, and so much more.
 
-### Packages
+#### Goals
+
+- Learing CRUD opeartions
+- JWT login and sending cookies
+- Handle multiple user at once
+- User based permissions
+- Linking different collections together
+- Dynamic data update
+- Stripe payment
+- Creating API docs
+
+> All the infomation about the different routes/controllers/models and rest of the functionality are in [guide.md]('/guide.md') including the steps taken to create every single thing in this project.
+
+#### Live Preview
+
+See the API live with amazing docs created with docgen - [E-Commerce API](https://e-commerce-api-10.herokuapp.com/)
+
+#### Local Setup
+
+Clone this repo first if you haven't
+
+```bash
+git clone https://github.com/yodkwtf/nodejs-course.git
+```
+
+Navigate to project directory, install dependencies and run the project
+
+```bash
+npm install && npm run dev
+```
+
+## Packages
 
 #### [express-async-errors](https://github.com/davidbanham/express-async-errors#readme)
 
@@ -20,7 +51,7 @@ Used to automatically validate emails entered by the users instead of manually s
 
 Used to parse the cookies send by the browser to get them as a token. Express helps us in setting up cookies but there's no built in way to parse them.
 
-### Q/As
+## Q/As
 
 **Q. Why do we need `express.json()` middleware?**
 
@@ -61,7 +92,7 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 **Q. Why so many validations in `createOrder` controller?**
 **A.** So the role of backend is to verify everything and check data the data as well as stripe clientSecret is valid. If not, the user simply would not be able to enter the `/checkout`[ref. to furniture world] page.
 
-#### Notes
+## Notes
 
 1. Comparing UserID's in controllers
 
