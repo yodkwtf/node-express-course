@@ -4,7 +4,7 @@ An e-commerce api created to handle everything that is expected from an e-commer
 
 #### Goals
 
-- Learing CRUD opeartions
+- Learning CRUD opeartions
 - JWT login and sending cookies
 - Handle multiple user at once
 - User based permissions
