@@ -5,7 +5,7 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 // packages
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 
@@ -40,7 +40,7 @@ app.use(cors());
 app.use(mongoSanitize());
 
 // * MIDDLEWARES
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static('./public'));
@@ -48,14 +48,14 @@ app.use(fileUpload());
 
 // * ROUTES
 
-app.get('/', (req, res) => {
-  res.send('E-Commerce API');
-});
-app.get('/api/v1', (req, res) => {
-  // console.log(req.cookies);
-  console.log(req.signedCookies);
-  res.send('E-Commerce API');
-});
+// app.get('/', (req, res) => {
+//   res.send('E-Commerce API');
+// });
+// app.get('/api/v1', (req, res) => {
+//   // console.log(req.cookies);
+//   console.log(req.signedCookies);
+//   res.send('E-Commerce API');
+// });
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);

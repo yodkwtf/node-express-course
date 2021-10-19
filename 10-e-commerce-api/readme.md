@@ -63,10 +63,26 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 #### Notes
 
-- In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
+1. Comparing UserID's in controllers
 
-- However, if there are multiple admin roles with multiple access, we would need to comapre the userID with the user that was attached to the product initially and only if they match then the current user would be able to perform functionality.
+   - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
 
-- Suppose `product B` was created by a logged user `X` so we attached the X's user id as the user key on `product B`. Now when the user X request a CRUD route, we will check if the product.user matches X.userId and only then allow him to do the tasks.
+   - However, if there are multiple admin roles with multiple access, we would need to comapre the userID with the user that was attached to the product initially and only if they match then the current user would be able to perform functionality.
 
-- All this isn't implemented in this particular project but that's how it'll work in real life.
+   - Suppose `product B` was created by a logged user `X` so we attached the X's user id as the user key on `product B`. Now when the user X request a CRUD route, we will check if the product.user matches X.userId and only then allow him to do the tasks.
+
+   - All this isn't implemented in this particular project but that's how it'll work in real life.
+
+2. Deployment for Production Fixes
+
+   - [] Edit the site url in `/public/index.html` from `localhost:5000` to deployed heroku url
+
+   - The live preview link above is being powered by another instance of this project stored in a separate individual repo and that's why I didn't do the step 1 so that it's easier for me to test things locally
+
+   - [x] Remove extra code from app.js including morgan package
+
+   - [x] Fix `helmet` issue by extracting the javascript from index.html of api-docs and adding to a external js file called `browser-app.js`
+
+   - [x] Link the html with js
+
+   - Re-deploy
