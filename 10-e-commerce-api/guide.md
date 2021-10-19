@@ -350,11 +350,11 @@
 
 #### Security Packages
 
-- [] express-rate-limiter
-- [] helmet
-- [] xss-clean
-- [] express-mongo-sanitize
-- [] cors (cookies!!!!)
+- [x] express-rate-limiter - limit request
+- [x] helmet - safe headers
+- [x] xss-clean - sanitize user input
+- [x] express-mongo-sanitize - protect mongo injections
+- [x] cors (cookies!!!!) - access from multiple domain
 
 #### Deploy on Heroku
 
