@@ -21,7 +21,22 @@ const getAllOrders = async (req, res) => {
 
 // * GET SINGLE ORDER
 const getSingleOrder = async (req, res) => {
-  res.send('get single order');
+  // get single order id
+  const { id: orderId } = req.params;
+
+  // get single order from DB
+  const order = await Order.findOne({ _id: orderId });
+
+  // check if order exists
+  if (!order) {
+    throw new CustomError.NotFoundError(`No order found with id : ${orderId}`);
+  }
+
+  // check if user is only requesting his own order[utils]
+  checkPermissions(req.user, order.user);
+
+  // send back the single order
+  res.status(StatusCodes.OK).json({ order });
 };
 
 // * GET CURRENT USER"S ORDERS
