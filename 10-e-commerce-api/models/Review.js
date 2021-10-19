@@ -42,9 +42,41 @@ ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
 // static method
 ReviewSchema.statics.calculateAverageRating = async function (productId) {
-  console.log(productId);
+  // aggregation setup
+  const result = await this.aggregate([
+    {
+      $match: {
+        product: productId,
+      },
+    },
+    {
+      $group: {
+        _id: '$product',
+        averageRating: {
+          $avg: '$rating',
+        },
+        numOfReviews: {
+          $sum: 1,
+        },
+      },
+    },
+  ]);
+
+  // get the product and update its rating and count
+  try {
+    await this.model('Product').findOneAndUpdate(
+      { _id: productId },
+      {
+        averageRating: Math.ceil(result[0]?.averageRating || 0),
+        numOfReviews: result[0]?.numOfReviews || 0,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
+// # PRE HOOKS
 ReviewSchema.post('save', async function () {
   // call the static method
   await this.constructor.calculateAverageRating(this.product);
