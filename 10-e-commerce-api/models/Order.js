@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Single Cart Item Model
-const SingleCartItemSchema = new mongoose.Schema({
+const SingleOrderItemSchema = new mongoose.Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   image: { type: String, required: true },
@@ -38,7 +38,7 @@ const OrderSchema = new mongoose.Schema(
       default: 'pending',
     },
 
-    cartItems: [SingleCartItemSchema], // another schema for every single cart item
+    orderItems: [SingleOrderItemSchema], // another schema for every single cart item
 
     user: {
       type: mongoose.Types.ObjectId,

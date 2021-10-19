@@ -58,6 +58,9 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 **A.** Both are defined in the model only but we call instance methods on the schema instances in controller whereas static methods are directly invoked on the schema itself (for eg. calcAvgRating).
 
+**Q. Why so many validations in `createOrder` controller?**
+**A.** So the role of backend is to verify everything and check data the data as well as stripe clientSecret is valid. If not, the user simply would not be able to enter the `/checkout`[ref. to furniture world] page.
+
 #### Notes
 
 - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.
