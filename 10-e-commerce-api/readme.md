@@ -50,6 +50,10 @@ Used to parse the cookies send by the browser to get them as a token. Express he
 
 **A.** Think of them as properties that do not exist in the database and only exist logically. We create them on the fly when we wanna compute something.
 
+**Q. What are we using `await product.save()` or `await product.remove()` instead of findOneAndUpdate?**
+
+**A.** When we are updating/deleting products we are also updating/deleting their specific reviews side by using the `pre` hook in the model. Using the `.save()` or `.remove()` triggers that hook where as `findOne` ones don't.
+
 #### Notes
 
 - In this API, only the admin user has the access to CRUD operations and since we are checking for authentication via middlewares, we don't need to check and compare userID in the controllers.

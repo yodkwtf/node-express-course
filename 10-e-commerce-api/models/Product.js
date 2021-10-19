@@ -88,4 +88,9 @@ ProductSchema.virtual('reviews', {
   // match: { rating: 5 }, // only get ratings where is 5
 });
 
+// PRE HOOK TO DELETE REVIEWS AS WE DELETE PRODUCT
+ProductSchema.pre('remove', async function (next) {
+  await this.model('Review').deleteMany({ product: this._id }); // product refers to the product key on review model
+});
+
 module.exports = mongoose.model('Product', ProductSchema);
