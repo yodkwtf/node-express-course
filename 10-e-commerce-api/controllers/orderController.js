@@ -36,8 +36,43 @@ const createOrder = async (req, res) => {
     );
   }
 
+  // data
+  let orderItems = [];
+  let subtotal = 0;
+
+  // looping over async func
+  for (const item of cartItems) {
+    // get single product from cart
+    const dbProduct = await Product.findOne({ _id: item.product });
+
+    // check if product exists
+    if (!dbProduct) {
+      throw new CustomError.NotFoundError(
+        `No product found with id : ${item.product}`
+      );
+    }
+
+    // get product data
+    const { name, price, image, _id } = dbProduct;
+
+    // create a new SingleOrderItem [extra schema from Order.js]
+    const singleOrderItem = {
+      amount: item.amount,
+      name,
+      price,
+      image,
+      product: _id,
+    };
+
+    // add single item to order [orderItems]
+    orderItems = [...orderItems, singleOrderItem];
+
+    // calc subtotal after each itme of cart
+    subtotal += item.amount * price;
+  }
+
   // send back the response
-  res.status(StatusCodes.CREATED).send('create order');
+  res.status(StatusCodes.CREATED).json({ orderItems, subtotal });
 };
 
 // * UPDATE ORDER
