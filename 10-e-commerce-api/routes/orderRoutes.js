@@ -23,6 +23,9 @@ router
 router.get('/showAllMyOrders', authenticateUser, getCurrentUserOrders);
 
 // # GET SINGLE ORDER || UPDATE ORDER
-router.route('/:id', authenticateUser).get(getSingleOrder).patch(updateOrder);
+router
+  .route('/:id')
+  .get(authenticateUser, getSingleOrder)
+  .patch(authenticateUser, updateOrder);
 
 module.exports = router;

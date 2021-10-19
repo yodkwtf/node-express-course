@@ -4,27 +4,27 @@ const CustomError = require('../errors');
 
 // * GET ALL ORDERS
 const getAllOrders = async (req, res) => {
-  console.log('get all orders');
+  res.send('get all orders');
 };
 
 // * GET SINGLE ORDER
 const getSingleOrder = async (req, res) => {
-  console.log('get single order');
+  res.send('get single order');
 };
 
 // * GET CURRENT USER"S ORDERS
 const getCurrentUserOrders = async (req, res) => {
-  console.log('get current users orders');
+  res.send('get current users orders');
 };
 
 // * CREATE ORDER
 const createOrder = async (req, res) => {
-  console.log('create order');
+  res.send('create order');
 };
 
 // * UPDATE ORDER
 const updateOrder = async (req, res) => {
-  console.log('update order');
+  res.send('update order');
 };
 
 module.exports = {
