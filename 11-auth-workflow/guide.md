@@ -17,8 +17,10 @@
 
 #### Update Login Controller
 
-- [] right after isPasswordCorrect
-- [] check if user.isVerified, if not 401
+- [x] right after isPasswordCorrect
+- [x] check if user.isVerified, if not 401
+
+#### Proper Verification Token with Crypto
 
 #### Verify Email Controller
 
