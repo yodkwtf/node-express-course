@@ -15,6 +15,7 @@ I documented every project as much as I could in its readme file.
 8. [Send Email](/08-send-email)
 9. [Stripe Payment](/09-stripe-payment)
 10. [E-Commerce API](/10-e-commerce-api)
+11. [Auth Workflow](/11-auth-workflow)
 
 ## Stack
 
