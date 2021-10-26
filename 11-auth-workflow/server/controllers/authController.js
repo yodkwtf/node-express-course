@@ -3,9 +3,12 @@ const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const { attachCookiesToResponse, createTokenUser } = require('../utils');
 
+// # REGISTER
 const register = async (req, res) => {
+  // get user data
   const { email, name, password } = req.body;
 
+  // check if user exists
   const emailAlreadyExists = await User.findOne({ email });
   if (emailAlreadyExists) {
     throw new CustomError.BadRequestError('Email already exists');
@@ -15,11 +18,27 @@ const register = async (req, res) => {
   const isFirstAccount = (await User.countDocuments({})) === 0;
   const role = isFirstAccount ? 'admin' : 'user';
 
-  const user = await User.create({ name, email, password, role });
-  const tokenUser = createTokenUser(user);
-  attachCookiesToResponse({ res, user: tokenUser });
-  res.status(StatusCodes.CREATED).json({ user: tokenUser });
+  // fake token for now
+  const verificationToken = 'fake token';
+
+  // create the user
+  const user = await User.create({
+    name,
+    email,
+    password,
+    role,
+    verificationToken,
+  });
+
+  // send back an email to verify
+  // send verificationToken only for testing in postman
+  res.status(StatusCodes.CREATED).json({
+    msg: 'Success! Please check your email to verify account',
+    verificationToken: user.verificationToken,
+  });
 };
+
+// # LOGIN
 const login = async (req, res) => {
   const { email, password } = req.body;
 

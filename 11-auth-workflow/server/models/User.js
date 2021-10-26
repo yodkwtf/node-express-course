@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 50,
   },
+
   email: {
     type: String,
     unique: true,
@@ -18,16 +19,27 @@ const UserSchema = new mongoose.Schema({
       message: 'Please provide valid email',
     },
   },
+
   password: {
     type: String,
     required: [true, 'Please provide password'],
     minlength: 6,
   },
+
   role: {
     type: String,
     enum: ['admin', 'user'],
     default: 'user',
   },
+
+  verificationToken: String,
+
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+
+  verified: Date,
 });
 
 UserSchema.pre('save', async function () {
