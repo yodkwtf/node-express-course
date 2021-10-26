@@ -4,7 +4,7 @@ const CustomError = require('../errors');
 const { attachCookiesToResponse, createTokenUser } = require('../utils');
 const crypto = require('crypto');
 
-// # REGISTER
+// # REGISTER USER
 const register = async (req, res) => {
   // get user data
   const { email, name, password } = req.body;
@@ -83,8 +83,18 @@ const logout = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
+// # VERIFY EMAIL
+const verifyEmail = async (req, res) => {
+  // get data from body
+  const { verificationToken, email } = req.body;
+
+  // send back the response
+  res.status(StatusCodes.OK).send(verificationToken);
+};
+
 module.exports = {
   register,
   login,
   logout,
+  verifyEmail,
 };
