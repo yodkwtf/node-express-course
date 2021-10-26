@@ -38,27 +38,42 @@ const register = async (req, res) => {
   });
 };
 
-// # LOGIN
+// # LOGIN USER
 const login = async (req, res) => {
+  // get user data
   const { email, password } = req.body;
 
+  // check if data isnt provided
   if (!email || !password) {
     throw new CustomError.BadRequestError('Please provide email and password');
   }
+
+  // find the logged user
   const user = await User.findOne({ email });
 
+  // if user isnt found
   if (!user) {
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
+
+  // compare passowrd and check if it isnt correct
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
+
+  // check if user is verified
+  if (!user.isVerified) {
+    throw new CustomError.UnauthenticatedError('Please verify your email');
+  }
+
   const tokenUser = createTokenUser(user);
   attachCookiesToResponse({ res, user: tokenUser });
 
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
+
+// # LOGOUT USER
 const logout = async (req, res) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
