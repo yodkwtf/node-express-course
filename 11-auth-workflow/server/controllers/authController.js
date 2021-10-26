@@ -88,8 +88,29 @@ const verifyEmail = async (req, res) => {
   // get data from body
   const { verificationToken, email } = req.body;
 
+  // find the user to verify
+  const user = await User.findOne({ email });
+
+  // if user not found
+  if (!user) {
+    throw new CustomError.UnauthenticatedError('Verification failed');
+  }
+
+  // if the token isnt correct
+  if (user.verificationToken !== verificationToken) {
+    throw new CustomError.UnauthenticatedError('Verification failed');
+  }
+
+  // if token macthes, verify the user
+  user.isVerified = true;
+  user.verified = Date.now();
+  user.verificationToken = '';
+
+  // save the user
+  await user.save();
+
   // send back the response
-  res.status(StatusCodes.OK).send(verificationToken);
+  res.status(StatusCodes.OK).send({ msg: 'Email verified!' });
 };
 
 module.exports = {
