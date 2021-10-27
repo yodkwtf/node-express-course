@@ -1,9 +1,12 @@
 const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
-const { attachCookiesToResponse, createTokenUser } = require('../utils');
+const {
+  attachCookiesToResponse,
+  createTokenUser,
+  sendVerificationEmail,
+} = require('../utils');
 const crypto = require('crypto');
-const sendEmail = require('../utils/sendEmail');
 
 // # REGISTER USER
 const register = async (req, res) => {
@@ -32,8 +35,16 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  // send back an email to verify
-  await sendEmail();
+  // origin
+  const origin = `http://localhost:3000`;
+
+  // send a verification email
+  await sendVerificationEmail({
+    name: user.name,
+    email: user.email,
+    verificationToken: user.verificationToken,
+    origin,
+  });
 
   // send verificationToken only for testing in postman
   res.status(StatusCodes.CREATED).json({
