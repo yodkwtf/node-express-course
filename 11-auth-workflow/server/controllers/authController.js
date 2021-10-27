@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Token = require('../models/Token');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const {
@@ -81,10 +82,28 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError('Please verify your email');
   }
 
+  // get the verified user
   const tokenUser = createTokenUser(user);
-  attachCookiesToResponse({ res, user: tokenUser });
 
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  // create refresh token
+  let refreshToken = '';
+
+  // check for existing token
+
+  refreshToken = crypto.randomBytes(40).toString('hex');
+
+  // add Token Model properties (getting from req headers)
+  const userAgent = req.headers['user-agent'];
+  const ip = req.ip;
+  const userToken = { refreshToken, ip, userAgent, user: user._id };
+
+  // create a token using token model
+  const token = await Token.create(userToken);
+
+  // attachCookiesToResponse({ res, user: tokenUser });
+
+  // send back the response
+  res.status(StatusCodes.OK).json({ user: tokenUser, token });
 };
 
 // # LOGOUT USER
