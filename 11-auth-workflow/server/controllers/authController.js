@@ -89,7 +89,21 @@ const login = async (req, res) => {
   let refreshToken = '';
 
   // check for existing token
+  const existingToken = await Token.findOne({ user: user._id });
 
+  if (existingToken) {
+    // destructure
+    const { isValid } = existingToken;
+    if (!isValid) {
+      throw new CustomError.UnauthenticatedError('Invalid Credentials');
+    }
+    refreshToken = existingToken.refreshToken;
+    attachCookiesToResponse({ res, user: tokenUser, refreshToken });
+
+    res.status(StatusCodes.OK).json({ user: tokenUser });
+  }
+
+  // create refresh tokne
   refreshToken = crypto.randomBytes(40).toString('hex');
 
   // add Token Model properties (getting from req headers)
@@ -100,6 +114,7 @@ const login = async (req, res) => {
   // create a token using token model
   await Token.create(userToken);
 
+  // attach both cookies
   attachCookiesToResponse({ res, user: tokenUser, refreshToken });
 
   // send back the response
