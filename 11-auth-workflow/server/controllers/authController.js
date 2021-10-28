@@ -171,7 +171,35 @@ const verifyEmail = async (req, res) => {
 
 // # FORGOT PASSWORD
 const forgotPassword = async (req, res) => {
-  res.send('forgot password');
+  // get user's email
+  const { email } = req.body;
+
+  // if email isnt provided
+  if (!email) {
+    throw new CustomError.BadRequestError(`Please provide an email`);
+  }
+
+  // find the user
+  const user = await User.findOne({ email });
+
+  // if user is legit
+  if (user) {
+    const passwordToken = crypto.randomBytes(70).toString('hex');
+    // send email
+
+    // link expiration time
+    const tenMinutes = 1000 * 60 * 10;
+    const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes);
+
+    // update user
+    user.passwordToken = passwordToken;
+    user.passwordTokenExpirationDate = passwordTokenExpirationDate;
+    await user.save();
+  }
+
+  res
+    .status(StatusCodes.OK)
+    .json({ msg: 'Please check your email for reset the link' });
 };
 
 // # RESET PASSWORD
