@@ -15,7 +15,6 @@ const sendResetPasswordEmail = async ({ name, email, token, origin }) => {
     subject: 'Reset Password',
     html: `
     <h4>Hello ${name},</h4>,
-    <br/>
     ${message}
     `,
   });

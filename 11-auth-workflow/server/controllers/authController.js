@@ -192,7 +192,7 @@ const forgotPassword = async (req, res) => {
     await sendResetPasswordEmail({
       name: user.name,
       email: user.email,
-      passwordToken: user.passwordToken,
+      token: passwordToken,
       origin,
     });
 
@@ -213,6 +213,36 @@ const forgotPassword = async (req, res) => {
 
 // # RESET PASSWORD
 const resetPassword = async (req, res) => {
+  // get user data [some from logic setup in frontend]
+  const { token, email, password } = req.body;
+
+  // check for missing values
+  if (!token || !email || !password) {
+    throw new CustomError.BadRequestError('Please provide all values');
+  }
+
+  // get the user [readme alert 404]
+  const user = await User.findOne({ email });
+
+  // if user is legit
+  if (user) {
+    const currentDate = new Date();
+
+    // check if expiration date is bigger than current date and the password token matches to one in the database
+    if (
+      user.passwordToken === token &&
+      user.passwordTokenExpirationDate > currentDate
+    ) {
+      // reset user password
+      user.password = password;
+      // clear password tokens
+      user.passwordToken = null;
+      user.passwordTokenExpirationDate = null;
+      // update user
+      await user.save();
+    }
+  }
+
   res.send('reset password');
 };
 
