@@ -8,6 +8,7 @@ const {
   createTokenUser,
   sendVerificationEmail,
   sendResetPasswordEmail,
+  createHash,
 } = require('../utils');
 
 // # REGISTER USER
@@ -201,7 +202,7 @@ const forgotPassword = async (req, res) => {
     const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes);
 
     // update user
-    user.passwordToken = passwordToken;
+    user.passwordToken = createHash(passwordToken);
     user.passwordTokenExpirationDate = passwordTokenExpirationDate;
     await user.save();
   }
@@ -230,7 +231,7 @@ const resetPassword = async (req, res) => {
 
     // check if expiration date is bigger than current date and the password token matches to one in the database
     if (
-      user.passwordToken === token &&
+      user.passwordToken === createHash(token) &&
       user.passwordTokenExpirationDate > currentDate
     ) {
       // reset user password
