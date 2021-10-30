@@ -104,7 +104,7 @@ const login = async (req, res) => {
     return res.status(StatusCodes.OK).json({ user: tokenUser });
   }
 
-  // create refresh tokne
+  // create refresh token
   refreshToken = crypto.randomBytes(40).toString('hex');
 
   // add Token Model properties (getting from req headers)
