@@ -22,19 +22,19 @@ A mini project to learn all about auth workflow with nodejs. It contains everyth
 
 **_Q._ How the `verify-email` route works?**
 
-**_Ans._**
+**_Ans._** We send the user data and the verificationToken created at the time of register via email. When user clicks on the `verify email` link we get the user's email and verificationToken from the frontend url. Then we find the user by email and check if the current verificationToken is same as the one associated to the user in the database at the time of register. If yes, then we add a verified property to the user and set the verificationToken to an empty string.
 
 **_Q._ How `forgot-email` route works?**
 
-**_Ans._**
+**_Ans._** When user forgets their password, they provide their email. Then we send an email to the user with a newly created passwordToken which will be later used to compare when reseting the password. Then we add the passwordToken as a property on user along with passwordExpirationTime. When the user resets the password, first we compare the passwordToken extracted from the frontend url to the one we prev saved in the database. We also check if the expiration time hasn't expired yet. If yes, we reset the password and empty the passwordToken and expirartion date. THIS WORKS SIMILAR TO HOW WE VERIFY A USER"S EMAIL.
 
 **_Q._ What's the point of `verificationToken` for verify-email?**
 
-**_Ans._**
+**_Ans._** Okay so when a user registers an account we create a new `verificationToken` and add it as a property on the newly created user. Then we send an email to the user with all the properties and a custom created frontend url which the user will navigate to when they click on the `verify-email` link from their email. Then we extract the token from the frontend url and compare it the `verficationToken` that we initially saved in the database. If both match, everything went right and we verify the user and erase the `verificationToken` to an empty string.
 
 **_Q_. What's the point of `passwordToken` and `passwordTokenExpirationDate` in forgot-password?**
 
-**_Ans._** Every a user creates a forgot password request, we create new `passwordToken` and `passwordTokenExpirationDate` properties on the user. Now when they click on the reset password link from their email, we send user to a specific reset-password url where we have a token. Then we compare the two tokens, the one from the user's url and the one in the user properties in the database and only if the two match, considering the password token hasn't expired (basically their's only a certain amount of time for which the reset password link is valid) do we reset the user's password.
+**_Ans._** Every time a user creates a forgot password request, we create new `passwordToken` and `passwordTokenExpirationDate` properties on the user. Now when they click on the reset password link from their email, we send user to a specific reset-password url where we have a token. Then we compare the two tokens, the one from the user's url and the one in the user properties in the database and only if the two match, considering the password token hasn't expired (basically their's only a certain amount of time for which the reset password link is valid) do we reset the user's password.
 
 **_Q_. At some places we arent checking if email doesnt exist in database (for eg, reset-password, forgot-password). We simply say check your email for reset link. Why is that?**
 
