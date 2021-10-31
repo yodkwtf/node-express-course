@@ -18,7 +18,7 @@ A mini project to learn all about auth workflow with nodejs. It contains everyth
 
 **_Q._ What's the difference b/w `accessToken` and `refreshToken`?**
 
-**_Ans._**
+**_Ans._** Access token generally has a low expiration time where as refresh token has a longer expiration time. This is because done make sure even if a malicious person gets access to our access token, they can't do much harm since the access token expires very soon. As per as our legit user, we keep creating a new access token for them every time it expires as long as the refresh token is present and hasn't expired. This process is done to add a layer of security to the auth process.
 
 **_Q._ How the `verify-email` route works?**
 
