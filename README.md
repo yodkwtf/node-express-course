@@ -1,4 +1,4 @@
-## Node and Express Course - Codes & Projects
+## NodeJs and Express Course - Codes & Projects
 
 A collection of tutorials, projects, and APIs from the node and express course I'm taking. For more info about a specific project, navigate to that project's directory and check out the readme file.
 I documented every project as much as I could in its readme file.
